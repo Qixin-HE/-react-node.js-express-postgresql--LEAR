@@ -12,7 +12,7 @@ const NavBar = () => (
                 <Link to="/litterclassification">Litter Classification</Link>
             </li>
             <li>
-                <Link to="/law">Laws and Penalties</Link>
+                <Link to="/article-list">Laws and Penalties</Link>
             </li>
             <li>
                 <Link to="/contactus">Contact Us</Link>

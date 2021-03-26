@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import LitterClassicationPage from './pages/LitterClassificationPage';
 import LawPage from './pages/LawPage';
 import ContactUsPage from './pages/ContactUsPage';
+import ArticlesListPage from './pages/ArticleListPage';
 import NavBar from './NavBar';
 import './App.css';
 
@@ -18,8 +19,9 @@ function App() {
         <div id="page-body">
         <Route path="/" component={HomePage} exact />
         <Route path="/litterclassification" component={LitterClassicationPage} />
-        <Route path="/law" component={LawPage} />
+        <Route path="/law/:name" component={LawPage} />
         <Route path="/contactus" component={ContactUsPage} />
+        <Route path="/article-list" component={ArticlesListPage} />
         </div>
         
 
