@@ -11,6 +11,7 @@ import ContactUsPage from './pages/ContactUsPage';
 import ArticlesListPage from './pages/ArticleListPage';
 import NavBar from './NavBar';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
