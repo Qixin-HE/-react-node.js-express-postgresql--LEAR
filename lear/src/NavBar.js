@@ -37,7 +37,7 @@ const NavBar = () => (
     <>
         <Navbar bg="light" variant="light">
                 
-                <Nav className="mr-auto">
+                <Nav className="container-fluid">
                 <Navbar.Brand href="/">
                 <img
                     alt=""
@@ -51,10 +51,12 @@ const NavBar = () => (
                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                     <Button variant="outline-info">Search</Button>
                 </Form>
+                
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/litterclassification">Litter Classification</Nav.Link>
                     <Nav.Link href="/article-list">Laws and Penalties</Nav.Link>
                     <Nav.Link href="/contactus">Contact Us</Nav.Link>
+                    
                 </Nav>
                 
 

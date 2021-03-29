@@ -9,13 +9,32 @@ body {
   font-size: 2.5rem;
   text-align: center;
 }
-div#bodyblock {
-  margin: 30px
-}
+
 .card {background-color: rgba(245, 245, 245, 0.90) !important;}
 
 
 .card-header, .card-footer { opacity: 1}
 div#longcard {
   padding-top: 30px;
+}
+nav a:hover {
+  background: rgba(43, 202, 176, 0.705);
+  color: white;
+}
+div#page-body{
+
+margin: 30px;
+padding: 30px;
+    background-color: rgba(245, 245, 245, 0.40);
+    padding-bottom: 20px;
+}
+.article-list-item {
+  text-decoration: none;
+  color: black;
+  padding: 16px 0 0 0;
+}
+
+.article-list-item p {
+  padding-bottom: 32px;
+  border-bottom: 2px solid black;
 }
