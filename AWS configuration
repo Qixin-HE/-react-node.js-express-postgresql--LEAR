@@ -1,0 +1,11 @@
+EC2 instance:
+user name: Administrator
+password: )V=rxXiQDCvR2if6$xRC8Etdh5SmJ;Qg
+public IP: 18.221.244.77
+
+S3:
+bucket name: lear1
+
+RDS:
+database-1: postgresql
+database-2: SQL
