@@ -6,26 +6,30 @@ import NotFoundPage from './NotFoundPage';
 const LawPage = ({ match }) => {
     //pull our name param out of "match" 
     const name = match.params.name;
-    const article = articleContent.find(article => article.name === name);
+    const article = articleContent.find(article => article.Month === name);
 
     //display a notfoundpage if there is not this article.
     if (!article) return <NotFoundPage/>;
     
 //filter the article contents, to display "related articles list"(except the one of the page) at the bottom of the article.
-const otherArticles = articleContent.filter(article => article.name !== name);
+const otherArticles = articleContent.filter(article => article.Month !== name);
 
     //return statement
     return (
         <>
-            <h1>Laws and Penalties</h1>
-            <h3>{article.title}</h3>
-            <p>
-                {article.content.map((pargraph, key) => (
-                    <p key={key}>{pargraph}</p>
-                ))}
-            </p>
-            <h3>Other Aricles:</h3>
+            <h1>Penalty cases in 2020</h1>
+            <div style={{height:"100vh"}}>
+
+            <h3>Month: {article.Month}</h3>
+            <h3>Number of Fines:  {article['Number of Fines']}</h3>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h4>Other Penalty cases:</h4>
             <ArticlesList articles={otherArticles} />
+            </div>
         </>
     );
 

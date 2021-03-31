@@ -4,8 +4,10 @@ import articleContent from './article-content';
 
 const ArticlesListPage = () => (
 <>
-<h1>Articles: Laws</h1>
-<ArticlesList articles={articleContent} />
+<h1>Penalties cases</h1>
+    <div style={{height:"100vh"}}>
+        <ArticlesList articles={articleContent} />
+    </div>
 </>
 );
 
