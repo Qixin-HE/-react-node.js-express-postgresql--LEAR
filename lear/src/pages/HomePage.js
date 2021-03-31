@@ -44,6 +44,7 @@ const HomePage = () => (
 
             </CardDeck>
             <div id="longcard">
+            <CardDeck>
             <Card  >
                 <Card.Body>
                     <Card.Title>Volunteer Events</Card.Title>
@@ -53,7 +54,18 @@ const HomePage = () => (
                     <Button variant="primary">More</Button>
                 </Card.Body>
             </Card>
-            </div>
+            <Card  >
+                
+                <Card.Body>
+                    <Card.Title>Information from News and Twitter</Card.Title>
+                    <Card.Text>
+                        In this project we are focusing on using various open data sets. At the current stage, we will be working with 8 datasets, but we will be adding a few more datasets as the project progresses.
+</Card.Text>
+                    
+                </Card.Body>
+            </Card>
+           </CardDeck>
+           </div>
         </div>
     </>
 
