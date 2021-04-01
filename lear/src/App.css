@@ -39,9 +39,10 @@ div#page-body{
   padding-left:15px;
   margin-left:-20px;
   border-radius: 0px 15px 15px 0px;
-  background: linear-gradient(145deg, #4f76ff, #4363da);
-  box-shadow:  33px 33px 65px #3f5ece,
-             -33px -33px 65px #557fff;
+  background: linear-gradient(
+    145deg
+    , #4fb6ff, #43daa9);
+  box-shadow: 5px 5px 5px #969cb1, 5px 5px 5px #5a5f6f;
 }
 
 
@@ -62,7 +63,7 @@ object-position: top;
 .carousel-caption {
 position: absolute;
 right: 0% !important;
-bottom: 30%;
+bottom: 50vh;
 left: 0% !important;
 z-index: 10;
 padding-top: 20px;
@@ -71,9 +72,10 @@ color: #fff;
 text-align: center;
 }
 .carousel-control-next, .carousel-control-prev{
-  top: 75%;
+  top: 90vh;
 }
+
 p#carouselp {
   margin-left: 10px;
   margin-right: 10px;
-}    
+} 

@@ -17,7 +17,7 @@ const otherArticles = articleContent.filter(article => article.Month !== name);
     //return statement
     return (
         <>
-            <h1>Penalty cases in 2020</h1>
+            <h1>Penalty cases in {article.Month} of 2020</h1>
             <div style={{height:"100vh"}}>
 
             <h3>Month: {article.Month}</h3>
@@ -27,7 +27,7 @@ const otherArticles = articleContent.filter(article => article.Month !== name);
             <br/>
             <br/>
             <br/>
-            <h4>Other Penalty cases:</h4>
+            <h4>The number of fines in other months in 2020:</h4>
             <ArticlesList articles={otherArticles} />
             </div>
         </>

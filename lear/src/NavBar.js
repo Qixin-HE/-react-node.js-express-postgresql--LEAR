@@ -28,7 +28,9 @@ import logo from './images/5120mp14logo.png';
 // );
 // export default NavBar;
 
-
+const state = {
+    val: ''
+};
 
 
 const NavBar = () => (
@@ -45,10 +47,13 @@ const NavBar = () => (
                     className="d-inline-block align-top"
                 />{' '}
                 </Navbar.Brand>
+                <>
                 <Form inline>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                    <Button variant="outline-info">Search</Button>
+                    <FormControl type="text" placeholder="Search" className="mr-sm-2" 
+          />
+                    <Button href="/search" variant="outline-info">Search</Button>
                 </Form>
+                </>
                 
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/litterclassification">Litter Classification</Nav.Link>
