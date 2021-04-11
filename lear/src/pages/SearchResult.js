@@ -4,8 +4,8 @@ import articleContent from './article-content';
 import LitterClassificationCard from '../components/LitterClassificationCard';
 import classifications from './litter-classification-content';
 
-const SearchResult = (  ) => {
-    const keyword = "January";
+const SearchResult = ( match ) => {
+    const keyword = match.params.keyword;
     const penalties = articleContent.find(penalty => penalty.Month === keyword);
     const classification = classifications.find(classification => classifications.month === keyword);
 

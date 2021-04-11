@@ -17,6 +17,9 @@ const otherArticles = articleContent.filter(article => article.Month !== name);
     //return statement
     return (
         <>
+        <h1>Laws</h1>
+        
+        <br/>
             <h1>Penalty cases in {article.Month} of 2020</h1>
             <div style={{height:"100vh"}}>
 
