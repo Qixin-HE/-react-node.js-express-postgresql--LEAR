@@ -12,22 +12,22 @@ app.use(bodyParser.json());
 
 var corsOptions = {
     origin: "http://localhost:8081"
-  };
+};
 
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const db = require("./app/models");
-db.sequelize.sync();
+//const db = require("./app/models");
+//db.sequelize.sync();
 //dangerous!
 // db.sequelize.sync({ force: true }).then(() => {
 //     console.log("Drop and re-sync db.");
 //   });
 
 //const queriesfile = require('./queries')
-app.get('/penalties', queriesfile.getPenalties);
+//app.get('/penalties', queriesfile.getPenalties);
 // app.use(express.static(path.join(__dirname, '/build')));
 
 app.get('/hello', (req, res) => res.send('Hello!'));
@@ -40,13 +40,35 @@ app.get('/hello', (req, res) => res.send('Hello!'));
 //     res.sendFile(path.join(__dirname + '/build/index.html'));
 // })
 
+const { Pool, Client } = require('pg')
+// const pool = new Pool({
+//     user: 'my_user',
+//     host: 'localhost',
+//     database: 'my_database',
+//     password: 'root',
+//     port: 5432,
+// })
 
+const client = new Client({
+    user: 'my_user',
+    host: 'localhost',
+    database: 'my_database',
+    password: 'root',
+    port: 5432,
+})
+client.connect()
+client.query('SELECT * from merchants', (err, res) => {
+    console.log(err, res.rows)
+    client.end()
+})
 
 
 //get param from url
- //app.get('/penalties', (req, res) => res.send(`Hello ${req.params.name}`));
+//app.get('/penalties', (req, res) => res.send(`Hello ${req.params.name}`));
 
- require("./app/routes/lear.routes")(app);
+//require("./app/routes/lear.routes")(app);
+
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
