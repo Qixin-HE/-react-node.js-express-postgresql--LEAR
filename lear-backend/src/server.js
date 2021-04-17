@@ -1,5 +1,5 @@
 import express from 'express';
-import bodyParser from 'body-parser';
+import bodyParser, { json } from 'body-parser';
 import path from 'path';
 import queriesfile from './queries'
 import cors from "cors";
@@ -15,6 +15,13 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(express.json());
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
+    next();
+  });
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,32 +48,62 @@ app.get('/hello', (req, res) => res.send('Hello!'));
 // })
 
 const { Pool, Client } = require('pg')
-// const pool = new Pool({
+const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'postgres',
+    password: '333444',
+    port: 5432,
+})
+// pool.query('select * from fine', (err, res) => {
+    
+//     console.log(err, res.rows[0]);
+//     //res.rows.forEach(rows => console.log(rows));
+    
+// })
+const getMerchants = () => {
+    return new Promise(function(resolve, reject) {
+      pool.query('select * from fine', (error, results) => {
+        if (error) {
+          reject(error)
+        }
+        
+        resolve(results.rows);
+        
+      })
+    }) 
+  }
+
+app.get('/', (req, res) => {
+    getMerchants().then(response => {
+    console.log(response);
+      res.status(200).send(response);
+    })
+    .catch(error => {
+      res.status(500).send(error);
+    })
+  })
+
+// const client = new Client({
 //     user: 'my_user',
 //     host: 'localhost',
 //     database: 'my_database',
 //     password: 'root',
 //     port: 5432,
 // })
+// client.connect()
+// var merchantList = [];
+// var merchant;
+// const query = {
+//     text: 'SELECT * from merchants',
 
-const client = new Client({
-    user: 'my_user',
-    host: 'localhost',
-    database: 'my_database',
-    password: 'root',
-    port: 5432,
-})
-client.connect()
-client.query('SELECT * from merchants', (err, res) => {
-    console.log(err, res.rows)
-    client.end()
-})
+//     rowMode: 'array',
+//   }
 
 
-//get param from url
-//app.get('/penalties', (req, res) => res.send(`Hello ${req.params.name}`));
 
-//require("./app/routes/lear.routes")(app);
+
+
 
 
 

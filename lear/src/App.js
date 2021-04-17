@@ -14,6 +14,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFoundPage from './pages/NotFoundPage';
 import SearchResult from './pages/SearchResult';
+import EventsPage from './pages/EventsPage';
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
             <Route path="/law/:name" component={LawPage} />
             <Route path="/contactus" component={ContactUsPage} />
             <Route path="/article-list" component={ArticlesListPage} />
-           
+            <Route path="/events" component={EventsPage} />
+
             <Route component={NotFoundPage} />
           </Switch>
 
