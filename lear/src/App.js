@@ -1,4 +1,4 @@
-import React, { useState, useContext} from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -16,7 +16,8 @@ import NotFoundPage from './pages/NotFoundPage';
 import SearchResult from './pages/SearchResult';
 import EventsPage from './pages/EventsPage';
 import LoginPage from './components/LoginPage';
-import { Context } from "./components/Provider";
+
+import useToken from './components/useToken';
 
 
 function App() {
@@ -29,12 +30,12 @@ function App() {
 // if(!token){
 //   return <LoginPage setToken={setToken} />
 // }
-// const [token, setToken] = useToken();
+const { token, setToken } = useToken();
 
-// const { password } = useContext(Context);
-// if(!token){
-//     return <LoginPage setToken={setToken}/>
-//   }
+//const { password } = useContext(Context);
+if(!token){
+    return <LoginPage setToken={setToken}/>
+  }
 
   return (
     <Router>

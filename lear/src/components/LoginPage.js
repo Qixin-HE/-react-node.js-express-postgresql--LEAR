@@ -1,39 +1,54 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Context } from "./Provider";
-import Provider from "./Provider";
+import { Link  } from 'react-router-dom';
+import { Form, Button, } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-
+const login = password => {
+    return "lear" === password
+}
 
 const LoginPage = ({ setToken }) => {
     //const { password, updatePassword } = useContext(Context);
-    const [username, setUserName] = useState();
-    const [password, setPassword] = useState();
 
+    const [password, setPassword] = useState();
     const handleSubmit = e => {
-        e.preventDefault()
+        e.preventDefault();
         const token = login(password);
         if (!token) {
             alert("Password is not correct, please try again.")
         }
+
+        setToken(token);
     }
 
+
+
     return (
-        <div>
-            <p>Enter the password:</p>
+        <div id="login-body" >
+            <div class="loin-wrapper">
+                
 
-            <input type="password" onChange={e => setPassword(e.target.value)} />
 
-            <div>
-                <button type="submit">Submit</button>
-            </div>
+            
+                    <Form onSubmit={handleSubmit}>
+                    
+                        <Form.Group controlId="formBasicPassword">
+                        
+                            <Form.Control style={{width:"200%", textAlign:"center"}}type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                            
+                        </Form.Group>
+                        
+                        <Button variant="info" type="submit">Submit</Button>
+                    </Form>
+                </div>
 
-        </div>
+            </div >
+        
+
     )
 };
 
-Login.propTypes = {
+LoginPage.propTypes = {
     setToken: PropTypes.func.isRequired
 }
 
