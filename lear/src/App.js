@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import React, { useState, useContext} from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -15,14 +15,36 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFoundPage from './pages/NotFoundPage';
 import SearchResult from './pages/SearchResult';
 import EventsPage from './pages/EventsPage';
+import LoginPage from './components/LoginPage';
+import { Context } from "./components/Provider";
+
 
 function App() {
+  //const [user, setUser] = useState(false);
+  //const [token, setToken] = useState();
+  // const handleLogin = e => {
+  //   e.preventDefault();
+  //   setUser(true);
+  // }
+// if(!token){
+//   return <LoginPage setToken={setToken} />
+// }
+// const [token, setToken] = useToken();
+
+// const { password } = useContext(Context);
+// if(!token){
+//     return <LoginPage setToken={setToken}/>
+//   }
+
   return (
     <Router>
       <div className="App">
+      
         <NavBar />
         <div id="page-body">
+        
           <Switch>
+          <Route path="/login" component={LoginPage} exact />
             <Route path="/" component={HomePage} exact />
             <Route path="/litterclassification" component={LitterClassicationPage} />
             <Route path="/law/:name" component={LawPage} />

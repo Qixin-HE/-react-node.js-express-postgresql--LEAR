@@ -2,6 +2,7 @@ import React from 'react';
 import backgroundImg from '../images/bg.jpg';
 import { Card, Button, CardDeck, Carousel, } from 'react-bootstrap';
 import carouselsImg from '../images/zjt-lear.jpg';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => (
     <>
@@ -60,16 +61,10 @@ const HomePage = () => (
                                 <br />
                             In this project we are focusing on using various open data sets. At the current stage, we will be working with 8 datasets, but we will be adding a few more datasets as the project progresses.
     </Card.Text>
-                            <Button variant="primary">More</Button>
-                        </Card.Body>
-                    </Card>
-                    <Card style={{ width: '18rem' }} >
-                        <Card.Body>
-                            <Card.Title>The important Mel Offical Laws</Card.Title>
-                            <Card.Text>
-                                In this project we are focusing on using various open data sets. At the current stage, we will be working with 8 datasets, but we will be adding a few more datasets as the project progresses.
-    </Card.Text>
-                            <Button variant="primary">More</Button>
+                            <Link to="/contactus">
+                                <Button variant="primary">More</Button>
+                            </Link>
+
                         </Card.Body>
                     </Card>
                     <Card style={{ width: '18rem' }} >
@@ -78,35 +73,53 @@ const HomePage = () => (
                             <Card.Text>
                                 In this project we are focusing on using various open data sets. At the current stage, we will be working with 8 datasets, but we will be adding a few more datasets as the project progresses.
     </Card.Text>
-                            <Button variant="primary">More</Button>
+                            <Link to="/litterclassification">
+                                <Button variant="primary">More</Button>
+                            </Link>
+
                         </Card.Body>
                     </Card>
+                    <Card style={{ width: '18rem' }} >
+                        <Card.Body>
+                            <Card.Title>The important Mel Offical Laws</Card.Title>
+                            <Card.Text>
+                                In this project we are focusing on using various open data sets. At the current stage, we will be working with 8 datasets, but we will be adding a few more datasets as the project progresses.
+    </Card.Text>
+                            <Link to="/article-list">
+                                <Button variant="primary">More</Button>
+                            </Link>
+
+                        </Card.Body>
+                    </Card>
+
                     <Card  >
                         <Card.Body>
                             <Card.Title>Volunteer Events</Card.Title>
                             <Card.Text>
                                 In this project we are focusing on using various open data sets. At the current stage, we will be working with 8 datasets, but we will be adding a few more datasets as the project progresses.
 </Card.Text>
-                            <Button variant="primary">More</Button>
+                            <Link to="/contactus">
+                                <Button variant="primary">More</Button>
+                            </Link>
                         </Card.Body>
                     </Card>
                 </CardDeck>
             </div>
             <div id="longcard">
                 <CardDeck>
-                    
+
                     <Card  >
 
                         <Card.Body>
                             <Card.Title>Information from News and Twitter</Card.Title>
                             <Card.Text>
                                 Will implement in the upcomming iterations!
-                                <br/>
-                                <br/>
-                                <br/>
-                                <br/>
-                                
-</Card.Text>
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+
+                            </Card.Text>
 
                         </Card.Body>
                     </Card>

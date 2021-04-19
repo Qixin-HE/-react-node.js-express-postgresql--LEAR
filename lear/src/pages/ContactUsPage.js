@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ContactUsPage = () => (
     <>
-        <h1>Contact Us</h1>
+        <h1>About Us</h1>
         <div id="bodyblock">
         <h3>Team number: MP14</h3>
         <h3>Mahara Page:</h3>
