@@ -8,11 +8,15 @@ After downloading the code, open a terminal window.<br />
 <br />
 In terminal, type in command:<br />
 cd [the path where lear-backend is in]<br />
+<br />
 hit enter, then type in command:<br />
 npm start<br />
+<br />
 then open a new terminal window, type in command:<br />
 cd [the path where lear is in]<br />
+<br />
 hit enter, then type in command:<br />
 npm start<br />
+<br />
 <br />
 A window should pop up and the website is running locally.
