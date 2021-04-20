@@ -21,15 +21,7 @@ import useToken from './components/useToken';
 
 
 function App() {
-  //const [user, setUser] = useState(false);
-  //const [token, setToken] = useState();
-  // const handleLogin = e => {
-  //   e.preventDefault();
-  //   setUser(true);
-  // }
-// if(!token){
-//   return <LoginPage setToken={setToken} />
-// }
+  
 const { token, setToken } = useToken();
 
 //const { password } = useContext(Context);

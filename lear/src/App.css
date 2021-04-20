@@ -12,6 +12,9 @@ body {
   font-size: 2.5rem;
   text-align: center;
 }
+p {
+  text-align: justify;
+}
 
 .card {background-color: rgba(245, 245, 245, 0.90) !important;}
 
@@ -32,6 +35,15 @@ div#page-body{
   padding-bottom: 20px;
   /* height: calc(100vh - 70px); */
 }
+
+div#text-block{
+  background-color: rgba(245, 245, 245, 0.60);
+  padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 13px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
 div#login-body{
   padding-block: 90px;
   padding-left: 50%;
@@ -45,7 +57,7 @@ div#login-body{
   transform: translate(-50%, -50%);
 }
 .container {
-  height: 200px;
+  
   position: relative;
   text-align: center;
 }
