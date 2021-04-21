@@ -22,6 +22,7 @@ export class MapContainer extends Component {
         };
         // binding this to event-handler functions
         this.onMarkerClick = this.onMarkerClick.bind(this);
+        //this.onTrigger = this.onTrigger.bind(this);
     }
 
     componentDidMount() {
@@ -38,12 +39,12 @@ export class MapContainer extends Component {
             activeMarker: marker,
             showingInfoWindow: true,
         })
-        
+        this.props.parentCallback(props.position);
     }
 
     // onTrigger = (event) => {
     //     console.log("Trigger")
-    //     this.props.parentCallback(this.state.activeMarker.position);
+    //     this.props.parentCallback(this.state.activeMarker);
     //     event.preventDefault();
     // }
 
@@ -90,7 +91,7 @@ export class MapContainer extends Component {
                                     lat: location.info.lat,
                                     lng: location.info.long
                                 }}
-                                onClick={this.onMarkerClick }    //onClick, not onclick
+                                onClick={this.onMarkerClick}    //onClick, not onclick
                                 name={location.info.DESCRIPTIO}
 
 

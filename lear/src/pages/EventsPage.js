@@ -3,6 +3,7 @@ import DataService from "../services/lear.service";
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, ButtonGroup, ToggleButton, Button } from 'react-bootstrap';
 import MapContainer from '../components/MapContainer';
+import { Last } from 'react-bootstrap/esm/PageItem';
 
 const EventsPage = () => {
 
@@ -44,14 +45,26 @@ const EventsPage = () => {
             });
     };
 
-    const [location, setLocation] = useState([]);
+    const [directionLat, setDirectionLat] = useState(0);
+    const [directionLong, setDirectionLong] = useState(0);
+
 
     const handleCallback = (childData) =>{
+        const lat = childData.lat;
+        const long = childData.lng
+        setDirectionLat(lat)
+        setDirectionLong(childData.lng)
+        console.log(lat)
+        console.log(directionLat)
+        console.log(externalMapLink)
         
-        setLocation({childData})
-        console.log(location)
     }
 
+    const externalMapLink = 
+    "https://www.google.com.au/maps/dir/" + directionLat + "," + directionLong
+
+
+    
     if (radioValue === '1') {
 
         return (
@@ -66,7 +79,7 @@ const EventsPage = () => {
                     <Row>
                         <Col sm={10} style={{ height: "900px" }}>
 
-                            <MapContainer locations={[...syring]} />
+                            <MapContainer locations={[...syring]} parentCallback = {handleCallback}/>
 
                         </Col>
                         <Col sm={2} style={{ marginLeft: "-30px" }}>
@@ -90,7 +103,7 @@ const EventsPage = () => {
                             </Row>
                             <Row>
                                 <h5>Get to this location:</h5>
-                                <Button variant="success" size="lg">
+                                <Button variant="success" size="lg" href={externalMapLink}>
                                     Check in google map website
     </Button>{' '}
 
@@ -117,7 +130,7 @@ const EventsPage = () => {
                     <Row>
                         <Col sm={10} style={{ height: "900px" }}>
 
-                            <MapContainer locations={[...trap]} />
+                            <MapContainer locations={[...trap]} parentCallback = {handleCallback}/>
 
                         </Col>
                         <Col sm={2} style={{ marginLeft: "-30px" }}>
@@ -142,7 +155,7 @@ const EventsPage = () => {
                             <Row>
                                 <h5>Get to this location:</h5>
                                 
-                                    <Button variant="success" size="lg" href="https://www.google.com.au/maps/">
+                                    <Button variant="success" size="lg" href={externalMapLink}>
                                         Check in google map website
         </Button>{' '}
                                 
