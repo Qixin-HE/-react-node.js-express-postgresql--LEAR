@@ -107,6 +107,29 @@ app.get('/syring', (req, res) => {
     })
   })
 
+  const getTrap = () => {
+    return new Promise(function(resolve, reject) {
+      pool.query('select * from json_traps', (error, results) => {
+        if (error) {
+          reject(error)
+        }
+        
+        resolve(results.rows);
+        
+      })
+    }) 
+  }
+
+app.get('/trap', (req, res) => {
+    getTrap().then(response => {
+    
+      res.status(200).send(response);
+    })
+    .catch(error => {
+      res.status(500).send(error);
+    })
+  })
+
 // const client = new Client({
 //     user: 'my_user',
 //     host: 'localhost',
