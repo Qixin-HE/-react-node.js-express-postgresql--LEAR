@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 const mapStyles = {
   map: {
     position: 'absolute',
-    width: '60%',
-    height: '60%'
+    width: '93%',
+    height: '100%'
   }
 };
 
@@ -121,10 +121,10 @@ recenterMap() {
   }
 }
 CurrentLocation.defaultProps = {
-    zoom: 14,
+    zoom: 11,
     initialCenter: {
-      lat: -1.2884,
-      lng: 36.8233
+      lat: -37.812364, 
+      lng: 144.964181
     },
     centerAroundCurrentLocation: false,
     visible: true

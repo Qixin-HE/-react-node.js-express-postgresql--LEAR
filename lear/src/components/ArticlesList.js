@@ -11,7 +11,7 @@ const ArticlesList = () => {
         getMerchant();
     }, []);
     function getMerchant() {
-        fetch('http://localhost:8080')
+        fetch('http://localhost:8080/fines')
             .then(response => {
                 return response.json();
             })
@@ -19,9 +19,6 @@ const ArticlesList = () => {
                 setMerchants(data);
             });
     };
-
-//const merchantList = merchants;
-//too many rerender
 
 
 

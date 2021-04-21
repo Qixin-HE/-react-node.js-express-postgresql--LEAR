@@ -61,7 +61,7 @@ const pool = new Pool({
 //     //res.rows.forEach(rows => console.log(rows));
     
 // })
-const getMerchants = () => {
+const getFines = () => {
     return new Promise(function(resolve, reject) {
       pool.query('select * from fine', (error, results) => {
         if (error) {
@@ -74,9 +74,32 @@ const getMerchants = () => {
     }) 
   }
 
-app.get('/', (req, res) => {
-    getMerchants().then(response => {
+app.get('/fines', (req, res) => {
+    getFines().then(response => {
     console.log(response);
+      res.status(200).send(response);
+    })
+    .catch(error => {
+      res.status(500).send(error);
+    })
+  })
+
+  const getSyring = () => {
+    return new Promise(function(resolve, reject) {
+      pool.query('select * from json_syring', (error, results) => {
+        if (error) {
+          reject(error)
+        }
+        
+        resolve(results.rows);
+        
+      })
+    }) 
+  }
+
+app.get('/syring', (req, res) => {
+    getSyring().then(response => {
+    
       res.status(200).send(response);
     })
     .catch(error => {
