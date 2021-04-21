@@ -19,7 +19,7 @@ export class CurrentLocation extends React.Component {
     super(props);
 
     const { lat, lng } = this.props.initialCenter;
-
+    
     this.state = {
       currentLocation: {
         lat: lat,
@@ -103,7 +103,8 @@ recenterMap() {
       return React.cloneElement(c, {
         map: this.map,
         google: this.props.google,
-        mapCenter: this.state.currentLocation
+        mapCenter: this.state.currentLocation,
+
       });
     });
   }

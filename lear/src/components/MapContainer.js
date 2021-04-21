@@ -12,12 +12,19 @@ const mapStyles = {
 
 
 export class MapContainer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showingInfoWindow: false,  // Hides or shows the InfoWindow
+            activeMarker: {},          // Shows the active marker upon click
+            selectedPlace: {}          // Shows the InfoWindow to the selected place upon a marker
+        };
+    }
 
-    state = {
-        showingInfoWindow: false,  // Hides or shows the InfoWindow
-        activeMarker: {},          // Shows the active marker upon click
-        selectedPlace: {}          // Shows the InfoWindow to the selected place upon a marker
-    };
+    componentDidMount() {
+
+    }
+
     onMarkerClick = (props, marker, e) =>
         this.setState({
             selectedPlace: props,
@@ -33,28 +40,40 @@ export class MapContainer extends Component {
             });
         }
     };
-   
+
 
     render() {
         return (
-            <CurrentLocation
-                centerAroundCurrentLocation
+            // <CurrentLocation
+            //     centerAroundCurrentLocation
+            //     google={this.props.google}
+
+            // >
+
+            <Map
                 google={this.props.google}
+                zoom={14}
+                style={mapStyles}
+                initialCenter={
+                    {
+
+                        lat: -37.84510949, // need better init pos init
+                        lng: 144.9825957   // same here
+                    }
+                }
             >
 
-                {/* <Map
-        google={this.props.google}
-        zoom={14}
-        style={mapStyles}
-        initialCenter={
-          {
-            lat: -1.2884,
-            lng: 36.8233
-          }
-        }
-        > */}
-        
-
+                {
+                    this.props.locations.map((location) => {
+                        return <Marker
+                            key={location.id}
+                            position={{
+                                lat: location.info.lat,
+                                lng: location.info.long
+                            }}
+                        />
+                    })
+                }
 
 
                 <InfoWindow
@@ -66,7 +85,8 @@ export class MapContainer extends Component {
                         <h4>{this.state.selectedPlace.name}</h4>
                     </div>
                 </InfoWindow>
-            </CurrentLocation>
+            </Map>
+
         );
     }
 }
