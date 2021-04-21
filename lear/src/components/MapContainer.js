@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './Map';
-import MarkersOnMap from './MarkersOnMap';
+
 
 const mapStyles = {
     width: '93%',
@@ -17,20 +17,35 @@ export class MapContainer extends Component {
         this.state = {
             showingInfoWindow: false,  // Hides or shows the InfoWindow
             activeMarker: {},          // Shows the active marker upon click
-            selectedPlace: {}          // Shows the InfoWindow to the selected place upon a marker
+            selectedPlace: {},          // Shows the InfoWindow to the selected place upon a marker
+            theLocation: {}
         };
+        // binding this to event-handler functions
+        this.onMarkerClick = this.onMarkerClick.bind(this);
     }
 
     componentDidMount() {
 
     }
 
-    onMarkerClick = (props, marker, e) =>
+    onMarkerClick(props, marker, e) {
+
+        console.log(props)
+        console.log(marker)
+        console.log(e)
         this.setState({
             selectedPlace: props,
             activeMarker: marker,
-            showingInfoWindow: true
-        });
+            showingInfoWindow: true,
+        })
+        
+    }
+
+    // onTrigger = (event) => {
+    //     console.log("Trigger")
+    //     this.props.parentCallback(this.state.activeMarker.position);
+    //     event.preventDefault();
+    // }
 
     onClose = props => {
         if (this.state.showingInfoWindow) {
@@ -43,107 +58,157 @@ export class MapContainer extends Component {
 
 
     render() {
-        if(this.props.locations[0].info.long === 144.9407233){
-        return (
-            // <CurrentLocation
-            //     centerAroundCurrentLocation
-            //     google={this.props.google}
+        if (this.props.locations[0].info.long === 144.9407233) {
+            return (
+                // <CurrentLocation
+                //     centerAroundCurrentLocation
+                //     google={this.props.google}
 
-            // >
-            
-   
+                // >
 
-            <Map
-                google={this.props.google}
-                zoom={14}
-                style={mapStyles}
-                initialCenter={
+
+
+                <Map
+                    google={this.props.google}
+                    zoom={14}
+                    style={mapStyles}
+                    initialCenter={
+                        {
+
+                            lat: -37.812364, // need better init pos init
+                            lng: 144.964181   // same here
+                        }
+                    }
+                >
+
                     {
 
-                        lat: -37.812364, // need better init pos init
-                        lng: 144.964181   // same here
+                        this.props.locations.map((location) => {
+                            return <Marker
+                                key={location.id}
+                                position={{
+                                    lat: location.info.lat,
+                                    lng: location.info.long
+                                }}
+                                onClick={this.onMarkerClick }    //onClick, not onclick
+                                name={location.info.DESCRIPTIO}
+
+
+                            />
+                        })
+
                     }
-                }
-            >
+                    {/* 
+                    <Marker
+                        onClick={this.onMarkerClick}
+                        name={'Kenyatta International Convention Centre'}
+                    /> */}
 
-                {
-                    this.props.locations.map((location) => {
-                        return <Marker
-                            key={location.id}
-                            position={{
-                                lat: location.info.lat,
-                                lng: location.info.long
+
+                    <InfoWindow
+                        marker={this.state.activeMarker}
+                        visible={this.state.showingInfoWindow}
+                        onClose={this.onClose}
+                    >
+                        <div>
+                            <h4>{this.state.selectedPlace.name}</h4>
+                        </div>
+                    </InfoWindow>
+                    {/* {selectedCenter && (
+                        <InfoWindow
+                            onCloseClick={() => {
+                                setSelectedCenter(null);
                             }}
-                        />
-                    })
-                    
-                }
+                            position={{
+                                lat: selectedCenter.latitude,
+                                lng: selectedCenter.longitude
+                            }}
+                        >
+                            <div>
+                                <h3>{selectedCenter.name}</h3>
+                                <h5>{selectedCenter.address}, {selectedCenter.city},{selectedCenter.state} {selectedCenter.zip_code}</h5>
+                                <h5>{selectedCenter.phone_number}</h5>
+                                <p>Hours of operation: {selectedCenter.hours}</p>
+                            </div>
+                        </InfoWindow>
+                    )} */}
+                </Map>
+
+            );
+        }
+        else {
+            return (
+                // <CurrentLocation
+                //     centerAroundCurrentLocation
+                //     google={this.props.google}
+
+                // >
 
 
-                <InfoWindow
-                    marker={this.state.activeMarker}
-                    visible={this.state.showingInfoWindow}
-                    onClose={this.onClose}
+
+                <Map
+                    google={this.props.google}
+                    zoom={14}
+                    style={mapStyles}
+                    initialCenter={
+                        {
+
+                            lat: -37.812364,
+                            lng: 144.964181
+                        }
+                    }
                 >
-                    <div>
-                        <h4>{this.state.selectedPlace.name}</h4>
-                    </div>
-                </InfoWindow>
-            </Map>
 
-        );
-    }
-    else {
-        return (
-            // <CurrentLocation
-            //     centerAroundCurrentLocation
-            //     google={this.props.google}
-
-            // >
-            
-   
-
-            <Map
-                google={this.props.google}
-                zoom={14}
-                style={mapStyles}
-                initialCenter={
                     {
+                        this.props.locations.map((location) => {
+                            return <Marker
+                                key={location.id}
+                                position={{
+                                    lat: location.info.lat,
+                                    lng: location.info.lon
+                                }}
+                                onClick={this.onMarkerClick}    //onClick, not onclick
+                                name={location.info.asset_description}
 
-                        lat: -37.812364, 
-                        lng: 144.964181   
+                            />
+                        })
+
                     }
-                }
-            >
 
-                {
-                    this.props.locations.map((location) => {
-                        return <Marker
-                            key={location.id}
-                            position={{
-                                lat: location.info.lat,
-                                lng: location.info.lon
+
+                    <InfoWindow
+                        marker={this.state.activeMarker}
+                        visible={this.state.showingInfoWindow}
+                        onClose={this.onClose}
+                    >
+                        <div>
+                            <h4>{this.state.selectedPlace.name}</h4>
+                        </div>
+                    </InfoWindow>
+
+                    {/* {selectedCenter && (
+                        <InfoWindow
+                            onCloseClick={() => {
+                                setSelectedCenter(null);
                             }}
-                        />
-                    })
-                    
-                }
+                            position={{
+                                lat: selectedCenter.latitude,
+                                lng: selectedCenter.longitude
+                            }}
+                        >
+                            <div>
+                                <h3>{selectedCenter.name}</h3>
+                                <h5>{selectedCenter.address}, {selectedCenter.city},{selectedCenter.state} {selectedCenter.zip_code}</h5>
+                                <h5>{selectedCenter.phone_number}</h5>
+                                <p>Hours of operation: {selectedCenter.hours}</p>
+                            </div>
+                        </InfoWindow>
+                    )} */}
+                </Map>
 
-
-                <InfoWindow
-                    marker={this.state.activeMarker}
-                    visible={this.state.showingInfoWindow}
-                    onClose={this.onClose}
-                >
-                    <div>
-                        <h4>{this.state.selectedPlace.name}</h4>
-                    </div>
-                </InfoWindow>
-            </Map>
-
-        );
+            );
+        }
     }
-}
 
 }
 //const key = process.env.REACT_APP_GOOGLE_API_KEY;

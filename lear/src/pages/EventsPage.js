@@ -15,7 +15,7 @@ const EventsPage = () => {
         { name: 'SWD Litter Trap Locations', value: '2' },
 
     ];
-    
+
     const [syring, setSyring] = useState([]);
     useEffect(() => {
         getSyring();
@@ -44,106 +44,117 @@ const EventsPage = () => {
             });
     };
 
-    if(radioValue === '1'){
+    const [location, setLocation] = useState([]);
 
-    return (
-        <>
-            <h1 style={{ marginBlockEnd: "30px" }}>Events and related locations</h1>
+    const handleCallback = (childData) =>{
+        
+        setLocation({childData})
+        console.log(location)
+    }
 
-            <Container style={{
-                height: "100%",
-                width: "100%",
-                maxWidth: "100%"
-            }}>
-                <Row>
-                <Col sm={10} style={{ height: "900px" }}>
-                    
-                        <MapContainer locations={[...syring]}/>
-                    
-                </Col>
-                <Col sm={2} style={{ marginLeft: "-30px"}}>
+    if (radioValue === '1') {
 
-                    <Row style={{ marginBottom: "40px"}}>
-                        <ButtonGroup toggle>
-                            {radios.map((radio, idx) => (
-                                <ToggleButton
-                                    key={idx}
-                                    type="radio"
-                                    variant="info"
-                                    name="radio"
-                                    value={radio.value}
-                                    checked={radioValue === radio.value}
-                                    onChange={(e) => setRadioValue(e.currentTarget.value)}
-                                >
-                                    {radio.name}
-                                </ToggleButton>
-                            ))}
-                        </ButtonGroup>
-                    </Row>
-                    <Row>
-                        <h5>Get to this location:</h5>
-                        <Button variant="success" size="lg">
-      Check in google map website
-    </Button>{' '}
-
-                    </Row>
-                </Col>
-                </Row>
-            </Container>
-
-
-        </>
-
-    );}
-    else {
         return (
             <>
                 <h1 style={{ marginBlockEnd: "30px" }}>Events and related locations</h1>
-    
+
                 <Container style={{
                     height: "100%",
                     width: "100%",
                     maxWidth: "100%"
                 }}>
                     <Row>
-                    <Col sm={10} style={{ height: "900px" }}>
-                        
-                            <MapContainer locations={[...trap]}/>
-                        
-                    </Col>
-                    <Col sm={2} style={{ marginLeft: "-30px"}}>
-    
-                        <Row style={{ marginBottom: "40px"}}>
-                            <ButtonGroup toggle>
-                                {radios.map((radio, idx) => (
-                                    <ToggleButton
-                                        key={idx}
-                                        type="radio"
-                                        variant="info"
-                                        name="radio"
-                                        value={radio.value}
-                                        checked={radioValue === radio.value}
-                                        onChange={(e) => setRadioValue(e.currentTarget.value)}
-                                    >
-                                        {radio.name}
-                                    </ToggleButton>
-                                ))}
-                            </ButtonGroup>
-                        </Row>
-                        <Row>
-                            <h5>Get to this location:</h5>
-                            <Button variant="success" size="lg">
-          Check in google map website
-        </Button>{' '}
-    
-                        </Row>
-                    </Col>
+                        <Col sm={10} style={{ height: "900px" }}>
+
+                            <MapContainer locations={[...syring]} />
+
+                        </Col>
+                        <Col sm={2} style={{ marginLeft: "-30px" }}>
+
+                            <Row style={{ marginBottom: "40px" }}>
+                                <ButtonGroup toggle>
+                                    {radios.map((radio, idx) => (
+                                        <ToggleButton
+                                            key={idx}
+                                            type="radio"
+                                            variant="info"
+                                            name="radio"
+                                            value={radio.value}
+                                            checked={radioValue === radio.value}
+                                            onChange={(e) => setRadioValue(e.currentTarget.value)}
+                                        >
+                                            {radio.name}
+                                        </ToggleButton>
+                                    ))}
+                                </ButtonGroup>
+                            </Row>
+                            <Row>
+                                <h5>Get to this location:</h5>
+                                <Button variant="success" size="lg">
+                                    Check in google map website
+    </Button>{' '}
+
+                            </Row>
+                        </Col>
                     </Row>
                 </Container>
-    
-    
+
+
             </>
-    
+
+        );
+    }
+    else {
+        return (
+            <>
+                <h1 style={{ marginBlockEnd: "30px" }}>Events and related locations</h1>
+
+                <Container style={{
+                    height: "100%",
+                    width: "100%",
+                    maxWidth: "100%"
+                }}>
+                    <Row>
+                        <Col sm={10} style={{ height: "900px" }}>
+
+                            <MapContainer locations={[...trap]} />
+
+                        </Col>
+                        <Col sm={2} style={{ marginLeft: "-30px" }}>
+
+                            <Row style={{ marginBottom: "40px" }}>
+                                <ButtonGroup toggle>
+                                    {radios.map((radio, idx) => (
+                                        <ToggleButton
+                                            key={idx}
+                                            type="radio"
+                                            variant="info"
+                                            name="radio"
+                                            value={radio.value}
+                                            checked={radioValue === radio.value}
+                                            onChange={(e) => setRadioValue(e.currentTarget.value)}
+                                        >
+                                            {radio.name}
+                                        </ToggleButton>
+                                    ))}
+                                </ButtonGroup>
+                            </Row>
+                            <Row>
+                                <h5>Get to this location:</h5>
+                                
+                                    <Button variant="success" size="lg" href="https://www.google.com.au/maps/">
+                                        Check in google map website
+        </Button>{' '}
+                                
+
+                            </Row>
+                        </Col>
+                    </Row>
+                </Container>
+
+
+            </>
+
         );
     }
 
