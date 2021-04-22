@@ -4,7 +4,10 @@ import path from 'path';
 import queriesfile from './queries'
 import cors from "cors";
 
+
 const app = express();
+//prepare for realease
+app.use(express.static(path.join(__dirname, '/build')));
 
 //https://bezkoder.com/node-express-sequelize-postgresql/
 // parse requests of content-type - application/json
@@ -151,6 +154,9 @@ app.get('/trap', (req, res) => {
 
 
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/build/index.html'));
+})
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
