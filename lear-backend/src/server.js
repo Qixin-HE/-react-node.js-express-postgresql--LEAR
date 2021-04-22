@@ -10,6 +10,7 @@ const app = express();
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
+//needed
 var corsOptions = {
     origin: "http://localhost:8081"
 };
@@ -18,6 +19,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    //res.setHeader('Access-Control-Allow-Origin', 'database-1.cbsg9s7iau2c.us-east-2.rds.amazonaws.com');
     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
     next();
@@ -26,53 +28,50 @@ app.use(function (req, res, next) {
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//const db = require("./app/models");
-//db.sequelize.sync();
-//dangerous!
-// db.sequelize.sync({ force: true }).then(() => {
-//     console.log("Drop and re-sync db.");
-//   });
 
-//const queriesfile = require('./queries')
-//app.get('/penalties', queriesfile.getPenalties);
-// app.use(express.static(path.join(__dirname, '/build')));
 
 app.get('/hello', (req, res) => res.send('Hello!'));
-//get param from url
-// app.get('/hello/:name', (req, res) => res.send(`Hello ${req.params.name}`));
-// //post route
-// app.post('/hello', (req, res) => res.send(`Hello! ${req.body.name}!`));
+
 
 // app.get('*', (req, res) => {
 //     res.sendFile(path.join(__dirname + '/build/index.html'));
 // })
 
-const { Pool, Client } = require('pg')
+const { Pool, Client, Connection } = require('pg')
 const pool = new Pool({
     user: 'postgres',
-    host: 'localhost',
-    database: 'postgres',
-    password: '333444',
+    host: 'db1.crrehpgr2eq9.us-east-1.rds.amazonaws.com',
+    database: 'lear',
+    password: 'learmel1',
     port: 5432,
 })
-// pool.query('select * from fine', (err, res) => {
-    
-//     console.log(err, res.rows[0]);
-//     //res.rows.forEach(rows => console.log(rows));
-    
+// const pool = new Pool({
+//     user: 'postgres',
+//     host: 'localhost',
+//     database: 'postgres',
+//     password: '333444',
+//     port: 5432,
 // })
+
+// pool.query('SELECT NOW()', (err, res) => {
+//     console.log(err, res)
+//     pool.end()
+//   })
+
+
 const getFines = () => {
     return new Promise(function(resolve, reject) {
       pool.query('select * from fine', (error, results) => {
         if (error) {
           reject(error)
         }
-        
+        console.log(results.rows);
         resolve(results.rows);
         
       })
     }) 
   }
+
 
 app.get('/fines', (req, res) => {
     getFines().then(response => {

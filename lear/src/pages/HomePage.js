@@ -1,6 +1,6 @@
 import React from 'react';
 import backgroundImg from '../images/bg.jpg';
-import { Card, Button, CardDeck, Carousel, } from 'react-bootstrap';
+import { Card, Button, CardDeck, Carousel, Container, } from 'react-bootstrap';
 import carouselsImg from '../images/zjt-lear.jpg';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ const HomePage = () => (
         <div id="bodyblock" >
 
             <div id="longcard">
-                <Carousel>
+                <Carousel interval={null}>
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
@@ -18,11 +18,23 @@ const HomePage = () => (
                             alt="First slide"
 
                         />
-                        <Carousel.Caption>
-                            <h3>Welcome to LEAR!</h3>
-
-                            <p id="carouselp">LEAR stands for Litter Education and Action Resource.This project aims to address the littering issue in four aspects: raising public awareness; providing education regarding littering; deterring the general public from littering and building a platform for environmental volunteers and new volunteers alike to get involved in the effort to clean up our beaches and remove litter from our environment.</p>
-
+                        <Carousel.Caption style={{top: "20%"}}>
+                            <h2>LEAR stands for Litter Education and Action Resource</h2>
+                            <Container style={{ left: "15%", lineHeight: "1"}}>
+                            <h5 id="carouselp" style={{ textAlign: "left"}}>This project aims to address the littering issue in four aspects: </h5>
+                            
+                            <p style={{ textAlign: "left"}}>
+                            1. raising public awareness</p>
+                            <p style={{ textAlign: "left"}}>
+                            2. providing education regarding littering
+                            </p>
+                            
+                            <p style={{ textAlign: "left"}}>
+                            3. deterring the general public from littering and building a platform for environmental volunteers </p>
+                            <p style={{ textAlign: "left"}}>
+                            4. new volunteers alike to get involved in the effort to clean up our beaches and remove litter from our environment
+                            </p>
+                            </Container>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -32,9 +44,9 @@ const HomePage = () => (
                             alt="Second slide"
                         />
 
-                        <Carousel.Caption>
-                            <h3>Iteration 1</h3>
-                            <p>In this iteration, we focus on the litter classification information, and laws and penalties information.</p>
+                        <Carousel.Caption style={{top: "20%"}}>
+                            <h2>Iteration 2</h2>
+                            <h4 id="carouselp" style={{ textAlign: "center"}}>In this iteration, we focus on displaying locations on map on Events page. check it out!</h4>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -44,9 +56,9 @@ const HomePage = () => (
                             alt="Third slide"
                         />
 
-                        <Carousel.Caption>
-                            <h3>Upcoming: Iteration 2</h3>
-                            <p>We will implement map functionality to inform volunteer where are the events!</p>
+                        <Carousel.Caption style={{top: "20%"}}>
+                            <h2>Upcoming: Iteration 3</h2>
+                            <h4 id="carouselp" style={{ textAlign: "center"}}>We will improve our website in terms of the fuctionalities in the past iterations.</h4>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
@@ -102,7 +114,7 @@ const HomePage = () => (
                             <Card.Title>Clean Up Events</Card.Title>
                             <Card.Text>
                             Whether it is hosting a clean-up event or attending a clean up event, our interactive map will provide you with all the information you could need. Clean up event locations and times, Litter disposal sites and public transport information, the map has it all. You can also click the link to create Eventbrite events for local clean ups. Click the more tab for additional information</Card.Text>
-                            <Link to="/contactus">
+                            <Link to="/events">
                                 <Button variant="primary">More</Button>
                             </Link>
                         </Card.Body>

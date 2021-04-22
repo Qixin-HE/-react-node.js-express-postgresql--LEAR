@@ -10,9 +10,12 @@ const ArticlesList = () => {
     useEffect(() => {
         getMerchant();
     }, []);
-    function getMerchant() {
-        fetch('http://localhost:8080/fines')
+    const getMerchant = async () => {
+        await fetch('http://localhost:8080/fines')
+        //fetch('database-1.cbsg9s7iau2c.us-east-2.rds.amazonaws.com')
+        
             .then(response => {
+                
                 return response.json();
             })
             .then(data => {
@@ -34,12 +37,12 @@ const ArticlesList = () => {
                             minHeight: "70px",
                             maxHeight: "500px"
                         }}>
-                            <Link style={{ textDecoration: "none", color: "white" }} key={key} to={`/law/${article.month}`} >
+                            <Link style={{ textDecoration: "none", color: "white" }} key={key} to={`/law/${article.info.Month}`} >
 
-                                <h4 className="article-list-item">{article.month}</h4>
+                                <h4 className="article-list-item">{article.info.Month}</h4>
                             </Link>
                             <br />
-                            <h5>   Amount of fines: {article['number_of_fine']}</h5>
+                            <h5>   Amount of fines: {article.info['Number of Fines']}</h5>
                         </div>
                     </ListGroupItem>
                 ))}

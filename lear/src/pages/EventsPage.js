@@ -21,13 +21,13 @@ const EventsPage = () => {
     useEffect(() => {
         getSyring();
     }, []);
-    function getSyring() {
-        fetch('http://localhost:8080/syring')
+   const getSyring = async() => {
+        await fetch('http://localhost:8080/syring')
             .then(response => {
                 return response.json();
             })
             .then(data => {
-                setSyring(data);
+                 setSyring(data);
             });
     };
 
@@ -35,8 +35,8 @@ const EventsPage = () => {
     useEffect(() => {
         getTrap();
     }, []);
-    function getTrap() {
-        fetch('http://localhost:8080/trap')
+    const getTrap = async() => {
+        await fetch('http://localhost:8080/trap')
             .then(response => {
                 return response.json();
             })
@@ -65,7 +65,7 @@ const EventsPage = () => {
 
 
     
-    if (radioValue === '1') {
+    if (radioValue === '1' ) {
 
         return (
             <>
@@ -79,7 +79,7 @@ const EventsPage = () => {
                     <Row>
                         <Col sm={10} style={{ height: "900px" }}>
 
-                            <MapContainer locations={[...syring]} parentCallback = {handleCallback}/>
+                          { syring.length > 0 && trap.length > 0 ? <MapContainer locations={[...syring]} parentCallback = {handleCallback}/> : null }
 
                         </Col>
                         <Col sm={2} style={{ marginLeft: "-30px" }}>
