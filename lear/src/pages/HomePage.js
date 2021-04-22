@@ -70,8 +70,7 @@ const HomePage = () => (
                         <Card.Body>
                             <Card.Title>What is LEAR?</Card.Title>
                             <Card.Text>
-                                
-                                LEAR stands for Litter Education & Action Resource and is a tool to help environmental volunteers identify, locate, and dispose of litter. With helpful links to legislation and a litter classifier, LEAR aims to make the lives of environmental volunteers easier by empowering them with easy access to all information they require. Click the more tab for additional information</Card.Text>
+                            LEAR stands for Litter Education & Action Resource and is a tool to help environmental volunteers identify, locate, and dispose of litter. LEAR aims to make the lives of environmental volunteers easier by empowering them. Click the more tab for additional information</Card.Text>
                             <Link to="/contactus">
                                 <Button variant="primary">More</Button>
                             </Link>
@@ -82,9 +81,7 @@ const HomePage = () => (
                         <Card.Body>
                             <Card.Title>Litter Classifier</Card.Title>
                             <Card.Text>
-                            Sometimes it can be difficult to figure out which type of litter you have found. Our Litter classifier will assist in identifying what type of litter you have, how long it takes to decompose and the correct disposal method for it. Click the more tab for additional information</Card.Text>
-                            <br />
-                            <br />
+                            Sometimes it can be difficult to figure out which type of litter you have found. Our Litter classifier will assist in identifying what type of litter you have and the correct disposal method for it. Click the more tab for additional information</Card.Text>
                             <Link to="/litterclassification">
                                 <Button variant="primary">More</Button>
                             </Link>
@@ -95,13 +92,7 @@ const HomePage = () => (
                         <Card.Body>
                             <Card.Title>Legislation and Litter</Card.Title>
                             <Card.Text>
-                            
-
                             Keep up to date with the most recent laws regarding litter and penalties or get your inner law geek on and read through previous legislation relating to litter. Click the more tab for additional information</Card.Text>
-                            <br />
-                            <br />
-                            <br />
-                            <br />
                             <Link to="/article-list">
                                 <Button variant="primary">More</Button>
                             </Link>
@@ -113,7 +104,7 @@ const HomePage = () => (
                         <Card.Body>
                             <Card.Title>Clean Up Events</Card.Title>
                             <Card.Text>
-                            Whether it is hosting a clean-up event or attending a clean up event, our interactive map will provide you with all the information you could need. Clean up event locations and times, Litter disposal sites and public transport information, the map has it all. You can also click the link to create Eventbrite events for local clean ups. Click the more tab for additional information</Card.Text>
+                            Whether it is hosting a clean-up event or attending a clean up event, our interactive map will provide you with all the information you could need. You can create Eventbrite events for local clean ups. Click the more tab for additional information</Card.Text>
                             <Link to="/events">
                                 <Button variant="primary">More</Button>
                             </Link>
