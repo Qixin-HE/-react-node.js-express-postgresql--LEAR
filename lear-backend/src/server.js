@@ -41,13 +41,24 @@ app.get('/hello', (req, res) => res.send('Hello!'));
 // })
 
 const { Pool, Client, Connection } = require('pg')
+// const pool = new Pool({
+//     user: 'postgres',
+//     host: 'db1.crrehpgr2eq9.us-east-1.rds.amazonaws.com',
+//     database: 'lear',
+//     password: 'learmel1',
+//     port: 5432,
+// })
+
+//for db on kartic ec2
 const pool = new Pool({
-    user: 'postgres',
-    host: 'db1.crrehpgr2eq9.us-east-1.rds.amazonaws.com',
-    database: 'lear',
-    password: 'learmel1',
-    port: 5432,
+  user: 'postgres',
+  host: 'localhost',
+  database: 'lear',
+  password: 'learmel1',
+  port: 5432,
 })
+
+//for zoe local db environment
 // const pool = new Pool({
 //     user: 'postgres',
 //     host: 'localhost',
@@ -56,10 +67,10 @@ const pool = new Pool({
 //     port: 5432,
 // })
 
-// pool.query('SELECT NOW()', (err, res) => {
-//     console.log(err, res)
-//     pool.end()
-//   })
+pool.query('SELECT NOW()', (err, res) => {
+    console.log(err, res)
+    
+  })
 
 
 const getFines = () => {
