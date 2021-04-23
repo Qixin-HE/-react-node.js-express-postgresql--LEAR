@@ -52,7 +52,7 @@ const { Pool, Client, Connection } = require('pg')
 //for db on kartic ec2
 const pool = new Pool({
   user: 'postgres',
-  host: 'localhost',
+  host: '127.0.0.1',
   database: 'lear',
   password: 'learmel1',
   port: 5432,
