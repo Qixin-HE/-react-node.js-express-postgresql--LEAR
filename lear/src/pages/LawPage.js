@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import ArticlesList from '../components/ArticlesList';
-import articleContent from './article-content';
+
 import NotFoundPage from './NotFoundPage';
 
 const LawPage = ({ match }) => {
+    const [merchants, setMerchants] = useState([]);
+    useEffect(() => {
+        getMerchant();
+    }, []);
+    const getMerchant = async () => {
+        await fetch('/fines')
+        //fetch('database-1.cbsg9s7iau2c.us-east-2.rds.amazonaws.com')
+        
+            .then(response => {
+                
+                return response.json();
+            })
+            .then(data => {
+                setMerchants(data);
+            });
+    };
+
     //pull our name param out of "match" 
     const name = match.params.name;
-    const article = articleContent.find(article => article.Month === name);
+    const article = merchants.find(article => article.Month === name);
 
     //display a notfoundpage if there is not this article.
     if (!article) return <NotFoundPage/>;
     
 //filter the article contents, to display "related articles list"(except the one of the page) at the bottom of the article.
-const otherArticles = articleContent.filter(article => article.Month !== name);
+const otherArticles = merchants.filter(article => article.Month !== name);
 
     //return statement
     return (

@@ -50,22 +50,22 @@ const { Pool, Client, Connection } = require('pg')
 // })
 
 //for db on kartic ec2
-const pool = new Pool({
-  user: 'postgres',
-  host: '127.0.0.1',
-  database: 'lear',
-  password: 'learmel1',
-  port: 5432,
-})
+// const pool = new Pool({
+//   user: 'postgres',
+//   host: '127.0.0.1',
+//   database: 'lear',
+//   password: 'learmel1',
+//   port: 5432,
+// })
 
 //for zoe local db environment
-// const pool = new Pool({
-//     user: 'postgres',
-//     host: 'localhost',
-//     database: 'postgres',
-//     password: '333444',
-//     port: 5432,
-// })
+const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'postgres',
+    password: '333444',
+    port: 5432,
+})
 
 pool.query('SELECT NOW()', (err, res) => {
     console.log(err, res)

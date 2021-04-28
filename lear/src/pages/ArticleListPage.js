@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ArticlesList from '../components/ArticlesList';
-import articleContent from './article-content';
+
 import { Link } from 'react-router-dom';
 
 

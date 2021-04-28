@@ -11,7 +11,7 @@ const ArticlesList = () => {
         getMerchant();
     }, []);
     const getMerchant = async () => {
-        await fetch('http://localhost:8080/fines')
+        await fetch('/fines')
         //fetch('database-1.cbsg9s7iau2c.us-east-2.rds.amazonaws.com')
         
             .then(response => {

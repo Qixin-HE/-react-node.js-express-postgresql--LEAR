@@ -22,7 +22,7 @@ const EventsPage = () => {
         getSyring();
     }, []);
    const getSyring = async() => {
-        await fetch('http://localhost:8080/syring')
+        await fetch('/syring')
             .then(response => {
                 return response.json();
             })
@@ -36,7 +36,7 @@ const EventsPage = () => {
         getTrap();
     }, []);
     const getTrap = async() => {
-        await fetch('http://localhost:8080/trap')
+        await fetch('/trap')
             .then(response => {
                 return response.json();
             })

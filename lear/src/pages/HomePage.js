@@ -121,6 +121,7 @@ const HomePage = () => (
                             <Card.Title>Information from News and Twitter</Card.Title>
                             <Card.Text>
                                 Will implement in the upcomming iterations!
+                                
                                 <br />
                                 <br />
                                 <br />

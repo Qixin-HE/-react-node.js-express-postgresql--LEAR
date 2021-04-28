@@ -44,6 +44,7 @@ if(!token){
             <Route path="/contactus" component={ContactUsPage} />
             <Route path="/article-list" component={ArticlesListPage} />
             <Route path="/events" component={EventsPage} />
+            <Route path="/search" component={SearchResult} />
 
             <Route component={NotFoundPage} />
           </Switch>
