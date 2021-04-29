@@ -65,13 +65,14 @@ const HomePage = () => (
             </div>
             <div id="longcard">
                 <CardDeck>
-                    <Card style={{ width: '18rem' }} >
+                    <Card style={{ width: '18rem' ,height: "20rem"}} >
 
                         <Card.Body>
                             <Card.Title>What is LEAR?</Card.Title>
                             <Card.Text>
-                            LEAR stands for Litter Education & Action Resource and is a tool to help environmental volunteers identify, locate, and dispose of litter. LEAR aims to make the lives of environmental volunteers easier by empowering them. Click the more tab for additional information</Card.Text>
-                            <Link to="/contactus">
+                            LEAR stands for Litter Education & Action Resource and is a tool to help environmental volunteers identify, locate, and dispose of litter. LEAR aims to make the lives of environmental volunteers easier by empowering them.
+                            Click the more tab for additional information</Card.Text>
+                            <Link style={{position:'absolute', bottom: "10%"}} to="/contactus">
                                 <Button variant="primary">More</Button>
                             </Link>
 
@@ -81,21 +82,22 @@ const HomePage = () => (
                         <Card.Body>
                             <Card.Title>Litter Classifier</Card.Title>
                             <Card.Text>
-                            Sometimes it can be difficult to figure out which type of litter you have found. Our Litter classifier will assist in identifying what type of litter you have and the correct disposal method for it. Click the more tab for additional information</Card.Text>
-                            <Link to="/litterclassification">
+                            Sometimes it can be difficult to figure out which type of litter you have found. Our Litter classifier will assist in identifying what type of litter you have and the correct disposal method for it. 
+                            Click the more tab for additional information</Card.Text>
+                            <Link style={{position:'absolute', bottom: "10%"}} to="/litterclassification">
                                 <Button variant="primary">More</Button>
                             </Link>
 
                         </Card.Body>
                     </Card>
                     <Card style={{ width: '18rem' }} >
-                        <Card.Body>
+                        <Card.Body className="d-flex flex-column">
                             <Card.Title>Legislation and Litter</Card.Title>
                             <Card.Text>
                             Keep up to date with the most recent laws regarding litter and penalties or get your inner law geek on and read through previous legislation relating to litter. Click the more tab for additional information</Card.Text>
-                            <Link to="/article-list">
-                                <Button variant="primary">More</Button>
-                            </Link>
+                            {/* <Link to="/article-list"> className="ml-auto align-self-end" */}
+                                <Button onClick={() => window.location.href = "/article-list"} style={{position:'absolute', bottom: "10%"}} variant="primary">More</Button>
+                            {/* </Link> */}
 
                         </Card.Body>
                     </Card>
@@ -105,7 +107,7 @@ const HomePage = () => (
                             <Card.Title>Clean Up Events</Card.Title>
                             <Card.Text>
                             Whether it is hosting a clean-up event or attending a clean up event, our interactive map will provide you with all the information you could need. You can create Eventbrite events for local clean ups. Click the more tab for additional information</Card.Text>
-                            <Link to="/events">
+                            <Link style={{position:'absolute', bottom: "10%"}} to="/events">
                                 <Button variant="primary">More</Button>
                             </Link>
                         </Card.Body>
