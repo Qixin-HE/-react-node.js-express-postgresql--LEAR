@@ -1,4 +1,4 @@
-import React, {useState, useEffect}  from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Fragment } from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
@@ -12,10 +12,10 @@ const ArticlesList = () => {
     }, []);
     const getMerchant = async () => {
         await fetch('/fines')
-        //fetch('database-1.cbsg9s7iau2c.us-east-2.rds.amazonaws.com')
-        
+            //fetch('database-1.cbsg9s7iau2c.us-east-2.rds.amazonaws.com')
+
             .then(response => {
-                
+
                 return response.json();
             })
             .then(data => {
@@ -27,9 +27,9 @@ const ArticlesList = () => {
 
     return (
         <div style={{ height: "100vh" }} >
-            
+
             <ListGroup>
-                
+
                 {[...merchants].map((article, key) => (
                     <ListGroupItem>
                         <div style={{
@@ -37,12 +37,18 @@ const ArticlesList = () => {
                             minHeight: "70px",
                             maxHeight: "500px"
                         }}>
-                            <Link style={{ textDecoration: "none", color: "white" }} key={key} to={`/law/${article.info.Month}`} >
+                            {/* <Link style={{ textDecoration: "none", color: "white" }} key={key} to={`/law/${article.info.Month}`} >
 
                                 <h4 className="article-list-item">{article.info.Month}</h4>
                             </Link>
                             <br />
-                            <h5>   Amount of fines: {article.info['Number of Fines']}</h5>
+                            <h5>   Amount of fines: {article.info['Number of Fines']}</h5> */}
+                            <Link style={{ textDecoration: "none", color: "white" }} key={key} to={`/law/${article.month}`} >
+
+                                <h4 className="article-list-item">{article.month}</h4>
+                            </Link>
+                            <br />
+                            <h5>   Amount of fines: {article['number_of_fine']}</h5>
                         </div>
                     </ListGroupItem>
                 ))}

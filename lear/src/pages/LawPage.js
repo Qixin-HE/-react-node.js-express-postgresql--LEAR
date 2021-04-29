@@ -23,8 +23,9 @@ const LawPage = ({ match }) => {
 
     //pull our name param out of "match" 
     const name = match.params.name;
+    
     const article = merchants.find(article => article.Month === name);
-
+    
     //display a notfoundpage if there is not this article.
     if (!article) return <NotFoundPage/>;
     

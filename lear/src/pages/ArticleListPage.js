@@ -6,20 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 const ArticlesListPage = () => {
-    // const [merchants, setMerchants] = useState(false);
-    
-    // useEffect(() => {
-    //     getMerchant();
-    // }, []);
-    // function getMerchant() {
-    //     fetch('http://localhost:8080')
-    //         .then(response => {
-    //             return response.text();
-    //         })
-    //         .then(data => {
-    //             setMerchants(data);
-    //         });
-    // }
+
     return (
         <>
             <h1>The Laws related to litter action in Victoria

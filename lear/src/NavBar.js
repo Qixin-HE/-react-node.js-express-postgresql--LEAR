@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import logo from './images/5120mp14logo.png';
+import SearchBar from './components/SearchBar';
+
 
 const state = {
     val: ''
 };
 
 
-const NavBar = () => (
+const NavBar = () => {
+    //const [keyword, setKeyword] = useState();
+
+    return (
     <>
         <Navbar bg="light" variant="light">
 
@@ -31,11 +36,7 @@ const NavBar = () => (
                 <Nav.Link href="/events">Events</Nav.Link>
 
                 <>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2"
-                        />
-                        <Button href="/search" variant="outline-info">Search</Button>
-                    </Form>
+                    <SearchBar />
                 </>
             </Nav>
 
@@ -47,6 +48,7 @@ const NavBar = () => (
 
 
 );
+}
 
 export default NavBar;
 
