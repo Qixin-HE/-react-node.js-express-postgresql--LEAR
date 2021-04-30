@@ -63,7 +63,10 @@ const EventsPage = () => {
     const externalMapLink = 
     "https://www.google.com.au/maps/dir/" + directionLat + "," + directionLong
 
-
+    const navigateToExternalMap = (url) => {
+        const newWindow = window.open( url , '_blank', 'noopener,noreferrer')
+  if (newWindow) newWindow.opener = null
+    }
     
     if (radioValue === '1' ) {
 
@@ -103,7 +106,7 @@ const EventsPage = () => {
                             </Row>
                             <Row>
                                 <h5>Get to this location:</h5>
-                                <Button variant="success" size="lg" href={externalMapLink}>
+                                <Button variant="success" size="lg" onClick={() => navigateToExternalMap(externalMapLink)}>
                                     Check in google map website
     </Button>{' '}
 
