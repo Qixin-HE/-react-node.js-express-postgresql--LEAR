@@ -1,141 +1,166 @@
 import React from 'react';
-import backgroundImg from '../images/bg.jpg';
-import { Card, Button, CardDeck, Carousel, Container, } from 'react-bootstrap';
 import carouselsImg from '../images/zjt-lear.jpg';
-import { Link } from 'react-router-dom';
+import pic02 from '../images/homepagepic2.jpg';
+import pic03 from '../images/homepagepic3.jpg';
+import pic04 from '../images/homepagepic4.jpg';
+import { Card, Button, CardDeck, Carousel, Container, Row, Col, } from 'react-bootstrap';
+
+import { Link, } from 'react-router-dom';
 
 const HomePage = () => (
     <>
+     
+    <Container id="container1" fluid style={{ paddingLeft:"0px" }}>
+  <Row>
+    <Col>
+    
+    <img className="d-block w-100"
+         src={carouselsImg}
+         alt="What is LEAR"
+         style={{position:"absolute"}}/>
 
-        <div id="bodyblock" >
-
-            <div id="longcard">
-                <Carousel interval={null}>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={carouselsImg}
-                            alt="First slide"
-
-                        />
-                        <Carousel.Caption style={{top: "20%"}}>
-                            <h2>LEAR stands for Litter Education and Action Resource</h2>
-                            <Container style={{ left: "15%", lineHeight: "1"}}>
-                            <h5 id="carouselp" style={{ textAlign: "left"}}>This project aims to address the littering issue in four aspects: </h5>
-                            
-                            <p style={{ textAlign: "left"}}>
-                            1. raising public awareness</p>
-                            <p style={{ textAlign: "left"}}>
-                            2. providing education regarding littering
-                            </p>
-                            
-                            <p style={{ textAlign: "left"}}>
-                            3. deterring the general public from littering and building a platform for environmental volunteers </p>
-                            <p style={{ textAlign: "left"}}>
-                            4. new volunteers alike to get involved in the effort to clean up our beaches and remove litter from our environment
-                            </p>
-                            </Container>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={carouselsImg}
-                            alt="Second slide"
-                        />
-
-                        <Carousel.Caption style={{top: "20%"}}>
-                            <h2>Iteration 2</h2>
-                            <h4 id="carouselp" style={{ textAlign: "center"}}>In this iteration, we focus on displaying locations on map on Events page. check it out!</h4>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={carouselsImg}
-                            alt="Third slide"
-                        />
-
-                        <Carousel.Caption style={{top: "20%"}}>
-                            <h2>Upcoming: Iteration 3</h2>
-                            <h4 id="carouselp" style={{ textAlign: "center"}}>We will improve our website in terms of the fuctionalities in the past iterations.</h4>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
-            </div>
-            <div id="longcard">
-                <CardDeck>
-                    <Card style={{ width: '18rem' ,height: "20rem"}} >
-
-                        <Card.Body>
-                            <Card.Title>What is LEAR?</Card.Title>
+<Card style={{ width: "60rem",
+    height: "18rem",
+    marginTop: "50px",borderRadius: "0rem"}} >
+                        <Card.Body style={{paddingBlock: "60px"}}>
+                            <Card.Title>
+                                <h1 class="text-dark font-weight-light">What is LEAR?</h1></Card.Title>
                             <Card.Text>
-                            LEAR stands for Litter Education & Action Resource and is a tool to help environmental volunteers identify, locate, and dispose of litter. LEAR aims to make the lives of environmental volunteers easier by empowering them.
-                            Click the more tab for additional information</Card.Text>
-                            <Link style={{position:'absolute', bottom: "10%"}} to="/contactus">
-                                <Button variant="primary">More</Button>
+                                <h3 class="text-dark font-weight-light" style={{ textAlign: "center"}}>LEAR can help volunteers find out the bins and clean-up events locations!</h3>
+                            </Card.Text>
+                            <Link style={{display: "flex", alignItems: "center",justifyContent: "center"}} to="/contactus">
+                                <Button variant="info" size="lg" style={{paddingLeft: "60px",
+    paddingRight: "60px"}}>Know the Project More</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
+    </Col>
+  </Row>
+ 
+</Container>
+
+<Container id="container2" fluid style={{paddingLeft:"0px",    marginTop: "62px"}}>
+<Row>
+    <Col>
+    
+    <img className="d-block w-100"
+         src={pic02}
+         alt="First slide"
+         style={{position:"absolute"}}/>
+
+<Card style={{     width: "60rem",
+    height: "18rem",
+    
+    marginTop: "50px",borderRadius: "0rem", position: "absolute",
+    right: "0%"}} >
+
+                        <Card.Body style={{paddingBlock: "60px"}}>
+                            <Card.Title>
+                                <h1 class="text-dark font-weight-light">Litter Classifier</h1></Card.Title>
+                            <Card.Text>
+                                <h3 class="text-dark font-weight-light" style={{ textAlign: "center"}}>
+                                LEAR assists in identifying what type of litter you have and the correct disposal method for it. </h3>
+                            </Card.Text>
+                            <Link style={{display: "flex", alignItems: "center",justifyContent: "center"}} to="/litterclassification">
+                                <Button variant="info" size="lg" style={{paddingLeft: "60px",
+    paddingRight: "60px"}}>Try the Classifier</Button>
                             </Link>
 
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '18rem' }} >
-                        <Card.Body>
-                            <Card.Title>Litter Classifier</Card.Title>
+                        </Col>
+  </Row>
+</Container>
+<Container id="container3" fluid style={{ paddingLeft:"0px", marginTop: "400px" }}>
+  <Row>
+    <Col>
+    
+    <img className="d-block w-100"
+         src={pic03}
+         alt="Legistation"
+         style={{position:"absolute"}}
+/>
+
+<Card style={{ width: "60rem",
+    height: "18rem",
+    marginTop: "50px",borderRadius: "0rem"}} >
+
+                        <Card.Body style={{paddingBlock: "60px"}}>
+                            <Card.Title>
+                                <h1 class="text-dark font-weight-light">Legislation and Litter</h1></Card.Title>
                             <Card.Text>
-                            Sometimes it can be difficult to figure out which type of litter you have found. Our Litter classifier will assist in identifying what type of litter you have and the correct disposal method for it. 
-                            Click the more tab for additional information</Card.Text>
-                            <Link style={{position:'absolute', bottom: "10%"}} to="/litterclassification">
-                                <Button variant="primary">More</Button>
+                                <h3 class="text-dark font-weight-light" style={{ textAlign: "center"}}>
+                                Find out previous legislation and penalties that relating to litter.</h3>
+                            </Card.Text>
+                            <Link style={{display: "flex", alignItems: "center",justifyContent: "center"}} to="/article-list">
+                                <Button variant="info" size="lg" style={{paddingLeft: "60px",paddingRight: "60px"}}>Find out More</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
+                        </Col>
+  </Row>
+ 
+</Container>
+
+<Container id="container4" fluid style={{paddingLeft:"0px",marginTop: "62px" }}>
+<Row>
+    <Col>
+    <img className="d-block w-100"
+         src={pic04}
+         alt="clean up events pic"
+         style={{position:"absolute"}}
+/>
+<Card style={{ width: "60rem",
+    height: "18rem",
+    
+    marginTop: "50px",borderRadius: "0rem", position: "absolute",
+    right: "0%"}} >
+
+                        <Card.Body style={{paddingBlock: "60px"}}>
+                            <Card.Title>
+                                <h1 class="text-dark font-weight-light">Clean Up Events</h1></Card.Title>
+                            <Card.Text>
+                                <h3 class="text-dark font-weight-light" style={{ textAlign: "center"}}>
+                                Our interactive map will provide you with all the information you could need.</h3>
+                            </Card.Text>
+                            <Link style={{display: "flex", alignItems: "center",justifyContent: "center"}} to="/events">
+                                <Button variant="info" size="lg" style={{paddingLeft: "60px",
+    paddingRight: "60px"}}>Check the Map</Button>
                             </Link>
 
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '18rem' }} >
-                        <Card.Body className="d-flex flex-column">
-                            <Card.Title>Legislation and Litter</Card.Title>
+                        </Col>
+  </Row>
+</Container>
+<Container id="container5" fluid style={{paddingLeft:"0px",marginTop: "400px", paddingRight: "0" }}>
+    <div style={{}}>
+<Card  id="bottom-card" style={{display: "flex",
+    alignItems: "center",
+    position: "absolute",
+    width: "100%",
+    height: "300px" }}>
+                        <Card.Body style={{position: "absolute", marginTop: "50px"}}>
+                        <Card.Title>
+                                <h1 class="text-dark font-weight-light">
+                                Information from News and Twitter
+                                </h1></Card.Title>
                             <Card.Text>
-                            Keep up to date with the most recent laws regarding litter and penalties or get your inner law geek on and read through previous legislation relating to litter. Click the more tab for additional information</Card.Text>
-                            {/* <Link to="/article-list"> className="ml-auto align-self-end" */}
-                                <Button onClick={() => window.location.href = "/article-list"} style={{position:'absolute', bottom: "10%"}} variant="primary">More</Button>
-                            {/* </Link> */}
-
-                        </Card.Body>
-                    </Card>
-
-                    <Card  >
-                        <Card.Body>
-                            <Card.Title>Clean Up Events</Card.Title>
-                            <Card.Text>
-                            Whether it is hosting a clean-up event or attending a clean up event, our interactive map will provide you with all the information you could need. You can create Eventbrite events for local clean ups. Click the more tab for additional information</Card.Text>
-                            <Link style={{position:'absolute', bottom: "10%"}} to="/events">
-                                <Button variant="primary">More</Button>
-                            </Link>
-                        </Card.Body>
-                    </Card>
-                </CardDeck>
-            </div>
-            <div id="longcard">
-                <CardDeck>
-
-                    <Card  >
-
-                        <Card.Body>
-                            <Card.Title>Information from News and Twitter</Card.Title>
-                            <Card.Text>
+                                <h3 class="text-dark font-weight-light" style={{ textAlign: "center"}}>
                                 Will implement in the upcomming iterations!
                                 
                                 <br />
                                 <br />
                                 <br />
                                 <br />
-
-                            </Card.Text>
+                                </h3>
+                            </Card.Text>                       
 
                         </Card.Body>
                     </Card>
-                </CardDeck>
-            </div>
-        </div>
+                    </div>
+</Container>
+ 
     </>
 
 

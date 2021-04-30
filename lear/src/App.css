@@ -16,8 +16,21 @@ p {
   text-align: justify;
 }
 
-.card {background-color: rgba(245, 245, 245, 0.90) !important;}
+.card {
+  background-color: rgba(245, 245, 245, 0.80) !important;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: none;
+  border-radius: 0rem;}
 
+div#bottom-card.card{
+  background-color: rgba(245, 245, 245, 1.0) !important;
+  }
 
 .card-header, .card-footer { opacity: 1}
 div#longcard {
@@ -29,12 +42,16 @@ nav a:hover {
   color: white;
 }
 div#page-body{
-  margin: 30px;
-  padding: 30px;
+  /* margin: 30px;
+  padding: 30px; */
   background-color: rgba(245, 245, 245, 0.40);
   padding-bottom: 20px;
   /* height: calc(100vh - 70px); */
 }
+/* div#page-body2{
+  margin: 30px;
+  padding: 30px; 
+} */
 
 div#text-block{
   background-color: rgba(245, 245, 245, 0.60);
@@ -100,7 +117,7 @@ div#login-body{
   
 }
 img.d-block.w-100 {
-height: 300px;
+height: 400px;
 object-fit: cover;
 object-position: top;
 }

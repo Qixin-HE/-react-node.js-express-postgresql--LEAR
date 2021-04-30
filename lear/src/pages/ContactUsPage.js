@@ -8,7 +8,8 @@ const ContactUsPage = () => {
     
     return (
     <>
-        <h1>About Us</h1>
+    
+        <h1 class="text-dark font-weight-light" style={{paddingTop: "40px"}}>About Us</h1>
 
         <Container>
 
@@ -103,7 +104,7 @@ const ContactUsPage = () => {
                    
 
         </Container>
-
+        
     </>
 
 );
