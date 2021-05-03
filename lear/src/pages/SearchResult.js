@@ -61,7 +61,7 @@ const SearchResult = ({ match }) => {
 
     useEffect(() => {
         searchData(keyword);
-        console.log(data)
+        //console.log(data)
     }
     );
 
@@ -86,7 +86,7 @@ const SearchResult = ({ match }) => {
     // }
     return (
         <>
-            <h1>Search results</h1>
+            <h1 class="text-dark font-weight-light" style={{ paddingTop: "40px", marginBlockEnd: "30px" }}>Search results</h1>
             <h5>Results in fines:</h5>
             <div style={{ height: "100vh" }} >
 

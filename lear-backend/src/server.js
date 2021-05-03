@@ -67,10 +67,10 @@ const pool = new Pool({
     port: 5432,
 })
 
-pool.query('SELECT NOW()', (err, res) => {
-    console.log(err, res)
+// pool.query('SELECT NOW()', (err, res) => {
+//     console.log(err, res)
     
-  })
+//   })
 
 
 const getFines = () => {
@@ -79,7 +79,7 @@ const getFines = () => {
         if (error) {
           reject(error)
         }
-        console.log(results.rows);
+        // console.log(results.rows);
         resolve(results.rows);
         
       })
@@ -96,6 +96,32 @@ app.get('/fines', (req, res) => {
       res.status(500).send(error);
     })
   })
+
+  //for litter classification
+  const getLitterClassification = () => {
+    return new Promise(function(resolve, reject) {
+      pool.query('select * from json_classification', (error, results) => {
+        if (error) {
+          reject(error)
+        }
+         //console.log(results.rows);
+        resolve(results.rows);
+        
+      })
+    }) 
+  }
+
+
+app.get('/litterclassification', (req, res) => {
+  getLitterClassification().then(response => {
+    console.log(response);
+      res.status(200).send(response);
+    })
+    .catch(error => {
+      res.status(500).send(error);
+    })
+  })
+//
 
   const getSyring = () => {
     return new Promise(function(resolve, reject) {
