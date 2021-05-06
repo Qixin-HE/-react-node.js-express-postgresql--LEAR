@@ -15,7 +15,7 @@ const EventsPage = () => {
     const [radioValue, setRadioValue] = useState('1');
     const radios = [
         { name: 'Syringe Bin Locations', value: '1' },
-        { name: 'SWD Litter Trap Locations', value: '2' },
+        { name: 'Landfill sites Locations', value: '2' },
 
     ];
 
@@ -33,17 +33,20 @@ const EventsPage = () => {
             });
     };
 
-    const [trap, setTrap] = useState([]);
+    const [landfill, setLandfill] = useState([]);
     useEffect(() => {
-        getTrap();
+        getSites();
     }, []);
-    const getTrap = async () => {
-        await fetch('/trap')
+    const getSites = async () => {
+        await fetch('/sites')
             .then(response => {
                 return response.json();
             })
             .then(data => {
-                setTrap(data);
+                const runningSites = data.filter(site => site.info[`Estimated year of closure`] > 2020 || site.info[`Estimated year of closure`] === "Not available");
+                //const checkingSite = data.filter(site => site.info[`Estimated year of closure`] > 2020);
+                //console.log(checkingSite)
+                setLandfill(runningSites);
             });
     };
 
@@ -56,9 +59,9 @@ const EventsPage = () => {
         const long = childData.lng
         setDirectionLat(lat)
         setDirectionLong(childData.lng)
-        console.log(lat)
-        console.log(directionLat)
-        console.log(externalMapLink)
+        // console.log(lat)
+        // console.log(directionLat)
+        // console.log(externalMapLink)
 
     }
 
@@ -99,7 +102,10 @@ const EventsPage = () => {
             <p>• You can <strong>change the makers on the map</strong> by clicking the radio button here.
             </p>
             <p>• <strong>Syring bins</strong> are used for sharps waste disposal. For example, used medical needles
-            can be diposed in it.</p>
+            can be diposed of in it.</p>
+            <p>• <strong>Landfill sites </strong>are used to dispose of larger waste and non recyclable waste. For example, metals, 
+            glass and plastic waste can be disposed of in these sites
+            </p>
             
       </Popover.Content>
         </Popover>
@@ -108,12 +114,13 @@ const EventsPage = () => {
         <Popover id="popover-basic">
             <Popover.Title as="h3">Google map link</Popover.Title>
             <Popover.Content>
-            <p>• You can <strong>click on a marker on the map</strong> to check the infomation of the location.
+            <p>• You can <strong>click on a marker on the map</strong> to check infomation about thislocation.
             </p>
-            <p>• After you choose a marker, you can click on the "<strong>Check in google map website</strong>" button.
-            A new window will open and lead you to the google map page.</p>
+            <p>• After you select a marker, you can click on the "<strong>Check in google map website</strong>" button.
+            A new window will open and lead you to the google maps page.</p>
             <p>• The location you picked on the map will show on the map page as <strong>the departure</strong>. 
-            You can manually change it as the destination place then check the navigation options.</p>
+            You can manually change it to the destination by clicking on the <strong>Swap</strong> option, then 
+            you can check the navigation options.</p>
             
       </Popover.Content>
         </Popover>
@@ -157,8 +164,8 @@ const EventsPage = () => {
                         </Row>
 
 
-                        {radioValue === '1' && syring.length > 0 && trap.length > 0 ? <MapContainer locations={[...syring]} parentCallback={handleCallback} /> : null}
-                        {radioValue === '2' && syring.length > 0 && trap.length > 0 ? <MapContainer locations={[...trap]} parentCallback={handleCallback} /> : null}
+                        {radioValue === '1' && syring.length > 0 && landfill.length > 0 ? <MapContainer locations={[...syring]} parentCallback={handleCallback} /> : null}
+                        {radioValue === '2' && syring.length > 0 && landfill.length > 0 ? <MapContainer locations={[...landfill]} parentCallback={handleCallback} /> : null}
 
 
                     </Col>

@@ -45,9 +45,9 @@ const LitterClassificationCard = ({ info }) => (
         </div>
         <div className="ColDetail">
             <div className="Header">
-                <div className="BookTitle">{info['Super category']}</div>
+                <div className="BookTitle">{info.Category}</div>
             </div>
-            <div className="Description">{info.Category}</div>
+            <div className="Description">{info['Super category']}</div>
             <Link to={`//www.google.com/search?q=how%20to%20dispose%20${info.Category}`} target="_blank">
                 Learn more
         </Link>

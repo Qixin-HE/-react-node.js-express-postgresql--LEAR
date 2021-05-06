@@ -146,28 +146,51 @@ app.get('/syring', (req, res) => {
     })
   })
 
-  const getTrap = () => {
-    return new Promise(function(resolve, reject) {
-      pool.query('select * from json_traps', (error, results) => {
-        if (error) {
-          reject(error)
-        }
+//   const getTrap = () => {
+//     return new Promise(function(resolve, reject) {
+//       pool.query('select * from json_traps', (error, results) => {
+//         if (error) {
+//           reject(error)
+//         }
         
-        resolve(results.rows);
+//         resolve(results.rows);
         
-      })
-    }) 
-  }
+//       })
+//     }) 
+//   }
 
-app.get('/trap', (req, res) => {
-    getTrap().then(response => {
+// app.get('/trap', (req, res) => {
+//     getTrap().then(response => {
     
-      res.status(200).send(response);
+//       res.status(200).send(response);
+//     })
+//     .catch(error => {
+//       res.status(500).send(error);
+//     })
+//   })
+const getSites = () => {
+  return new Promise(function(resolve, reject) {
+    pool.query('select * from json_sites', (error, results) => {
+      if (error) {
+        reject(error)
+      }
+      console.log(results.rows);
+      resolve(results.rows);
+      
     })
-    .catch(error => {
-      res.status(500).send(error);
-    })
+  }) 
+}
+
+app.get('/sites', (req, res) => {
+  getSites().then(response => {
+  
+    res.status(200).send(response);
   })
+  .catch(error => {
+
+    res.status(500).send(error);
+  })
+})
 
 // const client = new Client({
 //     user: 'my_user',

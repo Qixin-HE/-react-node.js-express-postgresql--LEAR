@@ -149,7 +149,7 @@ export class MapContainer extends Component {
 
                 <Map
                     google={this.props.google}
-                    zoom={14}
+                    zoom={10}
                     style={mapStyles}
                     initialCenter={
                         {
@@ -165,11 +165,17 @@ export class MapContainer extends Component {
                             return <Marker
                                 key={location.id}
                                 position={{
-                                    lat: location.info.lat,
-                                    lng: location.info.lon
+                                    lat: location.info.Latitude,
+                                    lng: location.info.Longitude
                                 }}
                                 onClick={this.onMarkerClick}    //onClick, not onclick
-                                name={location.info.asset_description}
+                                name={location.info[`Landfill name`]}
+                                suburb={location.info.Suburb}
+                                number={location.info['Landfill register number']}
+                                address={location.info.Address}
+                                extraAddress={location.info['Extra address information']}
+                                council={location.info.Council}
+                                wasteAccepted={location.info['Waste type accepted']}
 
                             />
                         })
@@ -182,8 +188,14 @@ export class MapContainer extends Component {
                         visible={this.state.showingInfoWindow}
                         onClose={this.onClose}
                     >
-                        <div>
-                            <h4>{this.state.selectedPlace.name}</h4>
+                        <div style={{lineHeight: "0.3px", paddingTop: "10px"}}>
+                            <p><strong>Suburb:</strong> {this.state.selectedPlace.suburb}</p>
+                            <p><strong>Council:</strong> {this.state.selectedPlace.council}</p>
+                            <p><strong>Landfill register number:</strong> {this.state.selectedPlace.number}</p>
+                            <p><strong>Landfill name:</strong> {this.state.selectedPlace.name}</p>
+                            <p><strong>Address:</strong> {this.state.selectedPlace.address}</p>
+                            <p><strong>Extra Address:</strong> {this.state.selectedPlace.extraAddress}</p>
+                            <p><strong>Waste type accepted:</strong> {this.state.selectedPlace.wasteAccepted}</p>
                         </div>
                     </InfoWindow>
 
