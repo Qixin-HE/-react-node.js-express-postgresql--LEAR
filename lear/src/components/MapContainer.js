@@ -5,7 +5,7 @@ import CurrentLocation from './Map';
 
 const mapStyles = {
     width: '93%',
-    height: '100%'
+    height: '85%'
 };
 
 

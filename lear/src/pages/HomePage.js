@@ -26,11 +26,11 @@ const HomePage = () => (
                             <Card.Title>
                                 <h1 class="text-dark font-weight-light">What is LEAR?</h1></Card.Title>
                             <Card.Text>
-                                <h3 class="text-dark font-weight-light" style={{ textAlign: "center"}}>LEAR can help volunteers find out the bins and clean-up events locations!</h3>
+                                <h3 class="text-dark font-weight-light" style={{ textAlign: "center"}}>Learn more about what LEAR is, why it exists and the team behind it!</h3>
                             </Card.Text>
                             <Link style={{display: "flex", alignItems: "center",justifyContent: "center"}} to="/contactus">
                                 <Button variant="info" size="lg" style={{paddingLeft: "60px",
-    paddingRight: "60px"}}>Know the Project More</Button>
+    paddingRight: "60px"}}>Find Out More About Us</Button>
                             </Link>
                         </Card.Body>
                     </Card>
@@ -56,10 +56,10 @@ const HomePage = () => (
 
                         <Card.Body style={{paddingBlock: "60px"}}>
                             <Card.Title>
-                                <h1 class="text-dark font-weight-light">Litter Classifier</h1></Card.Title>
+                                <h1 class="text-dark font-weight-light">Litter Classification</h1></Card.Title>
                             <Card.Text>
                                 <h3 class="text-dark font-weight-light" style={{ textAlign: "center"}}>
-                                LEAR assists in identifying what type of litter you have and the correct disposal method for it. </h3>
+                                Need help classifying litter? Our Litter Classification Tool can help! </h3>
                             </Card.Text>
                             <Link style={{display: "flex", alignItems: "center",justifyContent: "center"}} to="/litterclassification">
                                 <Button variant="info" size="lg" style={{paddingLeft: "60px",
@@ -87,10 +87,10 @@ const HomePage = () => (
 
                         <Card.Body style={{paddingBlock: "60px"}}>
                             <Card.Title>
-                                <h1 class="text-dark font-weight-light">Legislation and Litter</h1></Card.Title>
+                                <h1 class="text-dark font-weight-light">Legislation and News</h1></Card.Title>
                             <Card.Text>
                                 <h3 class="text-dark font-weight-light" style={{ textAlign: "center"}}>
-                                Find out previous legislation and penalties that relating to litter.</h3>
+                                Find out the current legislation and penalties as well as news from around the workld about litter.</h3>
                             </Card.Text>
                             <Link style={{display: "flex", alignItems: "center",justifyContent: "center"}} to="/article-list">
                                 <Button variant="info" size="lg" style={{paddingLeft: "60px",paddingRight: "60px"}}>Find out More</Button>

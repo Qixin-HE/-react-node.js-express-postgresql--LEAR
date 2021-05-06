@@ -155,7 +155,7 @@ p#carouselp {
   border-radius: 5px;
   flex-wrap: wrap;
   min-width: 300px;
-  background-color: rgba(245, 245, 245, 0.60);
+  background-color: rgba(245, 245, 245, 0.90);
 }
 .Header {
   width: 100%;

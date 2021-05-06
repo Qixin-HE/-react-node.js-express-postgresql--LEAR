@@ -37,18 +37,18 @@ const ArticlesList = () => {
                             minHeight: "70px",
                             maxHeight: "500px"
                         }}>
-                            {/* <Link style={{ textDecoration: "none", color: "white" }} key={key} to={`/law/${article.info.Month}`} >
+                            <Link style={{ textDecoration: "none", color: "white" }} key={key} to={`/law/${article.info.Month}`} >
 
                                 <h4 className="article-list-item">{article.info.Month}</h4>
                             </Link>
                             <br />
-                            <h5>   Amount of fines: {article.info['Number of Fines']}</h5> */}
-                            <Link style={{ textDecoration: "none", color: "white" }} key={key} to={`/law/${article.month}`} >
+                            <h5>   Amount of fines: {article.info['Number of Fines']}</h5>
+                            {/* <Link style={{ textDecoration: "none", color: "white" }} key={key} to={`/law/${article.month}`} >
 
                                 <h4 className="article-list-item">{article.month}</h4>
                             </Link>
                             <br />
-                            <h5>   Amount of fines: {article['number_of_fine']}</h5>
+                            <h5>   Amount of fines: {article['number_of_fine']}</h5> */}
                         </div>
                     </ListGroupItem>
                 ))}

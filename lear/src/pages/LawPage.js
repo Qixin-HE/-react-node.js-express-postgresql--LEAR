@@ -35,6 +35,7 @@ const otherArticles = merchants.filter(article => article.Month !== name);
     //return statement
     return (
         <>
+        <div style={{    padding: "30px"}}>
         <h1>Laws</h1>
         
         <br/>
@@ -50,6 +51,7 @@ const otherArticles = merchants.filter(article => article.Month !== name);
             <br/>
             <h4>The number of fines in other months in 2020:</h4>
             <ArticlesList articles={otherArticles} />
+            </div>
             </div>
         </>
     );
