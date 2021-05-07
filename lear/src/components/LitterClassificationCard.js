@@ -1,9 +1,12 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+// import { Card } from 'react-bootstrap';
+// import { ListGroup, ListGroupItem } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
+import { BsFillQuestionCircleFill } from "react-icons/bs";
+import { Popover, OverlayTrigger } from 'react-bootstrap';
 
-const LitterClassificationCard = ({ info }) => (
+
+const LitterClassificationCard = ({ info }) => {
 //image = image url = "Image"in json
 //title="Super category"
 //author=desciption=”Category“
@@ -39,6 +42,17 @@ const LitterClassificationCard = ({ info }) => (
     //         ))}
     //     </ListGroup>
     // </div>
+    const popoverCard = (
+        <Popover id="popover-basic">
+            <Popover.Title as="h3">How to dispose</Popover.Title>
+            <Popover.Content>
+            <p>{info['How to dispose']}</p>
+            
+      </Popover.Content>
+        </Popover>
+    );
+
+    return (
     <div className="CardWrapper">
         <div className="ColImg">
             <img className="Img" src={info.Images} alt={info['Super category']} />
@@ -47,13 +61,24 @@ const LitterClassificationCard = ({ info }) => (
             <div className="Header">
                 <div className="BookTitle">{info.Category}</div>
             </div>
-            <div className="Description">{info['Super category']}</div>
-            <Link to={`//www.google.com/search?q=how%20to%20dispose%20${info.Category}`} target="_blank">
+            <div className="Description"><strong>Super category:</strong> {info['Super category']}</div>
+            {/* <Link to={`//www.google.com/search?q=how%20to%20dispose%20${info.Category}`} target="_blank">
                 Learn more
-        </Link>
+        </Link> */}
+        <div className="Description"><strong>Decomposition time:</strong> {info.Decomposition}</div>
+        <div className="Description">
+        <h7 style={{ textAlign: "left" }}>How to dispose:   <span> &nbsp;</span>
+                           
+                           <OverlayTrigger trigger="click" placement="bottom" overlay={popoverCard}>
+                               <BsFillQuestionCircleFill />
+                           </OverlayTrigger>
+                           
+                       </h7>
+                       </div>
         </div>
     </div>
-);
+    );
+}
 
 export default LitterClassificationCard;
 

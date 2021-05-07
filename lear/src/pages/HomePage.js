@@ -10,7 +10,7 @@ import { Link, } from 'react-router-dom';
 const HomePage = () => (
     <>
      
-    <Container id="container1" fluid style={{ paddingLeft:"0px" }}>
+    <Container id="container1" fluid style={{ paddingLeft:"0px", marginTop: "-8px" }}>
   <Row>
     <Col>
     
@@ -19,40 +19,12 @@ const HomePage = () => (
          alt="What is LEAR"
          style={{position:"absolute"}}/>
 
-<Card style={{ width: "60rem",
-    height: "18rem",
-    marginTop: "50px",borderRadius: "0rem"}} >
-                        <Card.Body style={{paddingBlock: "60px"}}>
-                            <Card.Title>
-                                <h1 class="text-dark font-weight-light">What is LEAR?</h1></Card.Title>
-                            <Card.Text>
-                                <h3 class="text-dark font-weight-light" style={{ textAlign: "center"}}>Learn more about what LEAR is, why it exists and the team behind it!</h3>
-                            </Card.Text>
-                            <Link style={{display: "flex", alignItems: "center",justifyContent: "center"}} to="/contactus">
-                                <Button variant="info" size="lg" style={{paddingLeft: "60px",
-    paddingRight: "60px"}}>Find Out More About Us</Button>
-                            </Link>
-                        </Card.Body>
-                    </Card>
-    </Col>
-  </Row>
- 
-</Container>
 
-<Container id="container2" fluid style={{paddingLeft:"0px",    marginTop: "62px"}}>
-<Row>
-    <Col>
-    
-    <img className="d-block w-100"
-         src={pic02}
-         alt="First slide"
-         style={{position:"absolute"}}/>
-
-<Card style={{     width: "60rem",
+                    <Card style={{     width: "60rem",
     height: "18rem",
     
     marginTop: "50px",borderRadius: "0rem", position: "absolute",
-    right: "0%"}} >
+    left: "0%"}} >
 
                         <Card.Body style={{paddingBlock: "60px"}}>
                             <Card.Title>
@@ -68,6 +40,39 @@ const HomePage = () => (
 
                         </Card.Body>
                     </Card>
+    </Col>
+  </Row>
+ 
+</Container>
+
+<Container id="container2" fluid style={{paddingLeft:"0px", marginTop: "400px"}}>
+<Row>
+    <Col>
+    
+    <img className="d-block w-100"
+         src={pic02}
+         alt="First slide"
+         style={{position:"absolute"}}/>
+
+
+                    <Card style={{ width: "60rem", height: "18rem", marginTop: "50px",borderRadius: "0rem", 
+                    position: "absolute", right: "0%"}} >
+
+                        <Card.Body style={{paddingBlock: "60px"}}>
+                            <Card.Title>
+                                <h1 class="text-dark font-weight-light">Clean Up Events</h1></Card.Title>
+                            <Card.Text>
+                                <h3 class="text-dark font-weight-light" style={{ textAlign: "center"}}>
+                                Our interactive map will provide you with all the information you could need.</h3>
+                            </Card.Text>
+                            <Link style={{display: "flex", alignItems: "center",justifyContent: "center"}} to="/events">
+                                <Button variant="info" size="lg" style={{paddingLeft: "60px",
+    paddingRight: "60px"}}>Check the Map</Button>
+                            </Link>
+
+                        </Card.Body>
+                    </Card>
+
                         </Col>
   </Row>
 </Container>
@@ -97,6 +102,7 @@ const HomePage = () => (
                             </Link>
                         </Card.Body>
                     </Card>
+                   
                         </Col>
   </Row>
  
@@ -110,24 +116,19 @@ const HomePage = () => (
          alt="clean up events pic"
          style={{position:"absolute"}}
 />
-<Card style={{ width: "60rem",
-    height: "18rem",
-    
-    marginTop: "50px",borderRadius: "0rem", position: "absolute",
-    right: "0%"}} >
 
+                    <Card style={{  width: "60rem", height: "18rem", marginTop: "50px",borderRadius: "0rem", 
+                    position: "absolute", right: "0%"}} >
                         <Card.Body style={{paddingBlock: "60px"}}>
                             <Card.Title>
-                                <h1 class="text-dark font-weight-light">Clean Up Events</h1></Card.Title>
+                                <h1 class="text-dark font-weight-light">What is LEAR?</h1></Card.Title>
                             <Card.Text>
-                                <h3 class="text-dark font-weight-light" style={{ textAlign: "center"}}>
-                                Our interactive map will provide you with all the information you could need.</h3>
+                                <h3 class="text-dark font-weight-light" style={{ textAlign: "center"}}>Learn more about what LEAR is, why it exists and the team behind it!</h3>
                             </Card.Text>
-                            <Link style={{display: "flex", alignItems: "center",justifyContent: "center"}} to="/events">
+                            <Link style={{display: "flex", alignItems: "center",justifyContent: "center"}} to="/contactus">
                                 <Button variant="info" size="lg" style={{paddingLeft: "60px",
-    paddingRight: "60px"}}>Check the Map</Button>
+    paddingRight: "60px"}}>Find Out More About Us</Button>
                             </Link>
-
                         </Card.Body>
                     </Card>
                         </Col>

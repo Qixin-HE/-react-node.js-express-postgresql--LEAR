@@ -15,8 +15,9 @@ const NavBar = () => {
 
     return (
     <>
-        <Navbar bg="light" variant="light">
-
+    <h5 class="text-dark font-weight-light">
+        <Navbar bg="light" variant="light" style={{ paddingRight: "200px"}}>
+        
             <Nav className="container-fluid">
                 <Navbar.Brand href="/">
                     <img
@@ -34,16 +35,17 @@ const NavBar = () => {
                 <Nav.Link href="/litterclassification">Litter Classification</Nav.Link>
                 <Nav.Link href="/article-list">Laws and Penalties</Nav.Link>
                 <Nav.Link href="/events">Events</Nav.Link>
-
+                
                 <>
-                    <SearchBar />
+                    {/* <SearchBar /> */}
                 </>
             </Nav>
 
 
 
-
+            
         </Navbar>
+        </h5>
     </>
 
 
