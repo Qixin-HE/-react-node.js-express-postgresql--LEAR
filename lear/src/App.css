@@ -44,8 +44,10 @@ nav a:hover {
 div#page-body{
   /* margin: 30px;
   padding: 30px; */
+  padding-top: 74px;
   background-color: rgba(245, 245, 245, 0.40);
   padding-bottom: 60px;
+  min-height: 1300px;
   /* height: calc(100vh - 70px); */
 }
 /* div#page-body2{
@@ -224,3 +226,6 @@ p#carouselp {
 }
 
 /* to spacing the article navigation list */
+.MuiListItem-button {
+ margin: 15px;
+}

@@ -13,14 +13,14 @@ import navigateToElement from '../components/ArticleNaviation';
 
 const ArticlesListPage = () => {
     const [scroll, setScroll] = useState(false);
-    const [style, setStyle] = useState({ 
-        backgroundColor: "rgba(245, 245, 245, 0.8)", 
-        position: "fixed",
-        width: "20%",
-        borderRadius: "0.7rem",
-        paddingTop: "10px",
-        marginTop: "-80px",
-        height: "98.7%"})
+    // const [style, setStyle] = useState({ 
+    //     backgroundColor: "rgba(245, 245, 245, 0.8)", 
+    //     position: "fixed",
+    //     width: "20%",
+    //     borderRadius: "0.7rem",
+    //     paddingTop: "10px",
+    //     marginTop: "-80px",
+    //     height: "98.7%"})
 
 
     useEffect(() => {
@@ -28,27 +28,27 @@ const ArticlesListPage = () => {
             setScroll(window.scrollY > 50);
         });
     }, []);
-    useEffect(() => {
-        if (scroll){
-            setStyle({ 
-                backgroundColor: "rgba(245, 245, 245, 0.8)", 
-                position: "fixed",
-                width: "20%",
-                borderRadius: "0.7rem",
-                paddingTop: "10px",
-                marginTop: "-80px",
-                height: "98.7%"})
-        }else{
-            setStyle({backgroundColor: "rgba(245, 245, 245, 0.8)", 
-            position: "fixed",
-            width: "20%",
-            borderRadius: "0.7rem",
-            paddingTop: "10px",
-            marginTop: "8px",
-            height: "89%"})
-        }
+    // useEffect(() => {
+    //     if (scroll){
+    //         setStyle({ 
+    //             backgroundColor: "rgba(245, 245, 245, 0.8)", 
+    //             position: "fixed",
+    //             width: "20%",
+    //             borderRadius: "0.7rem",
+    //             paddingTop: "10px",
+    //             marginTop: "-80px",
+    //             })
+    //     }else{
+    //         setStyle({backgroundColor: "rgba(245, 245, 245, 0.8)", 
+    //         position: "fixed",
+    //         width: "20%",
+    //         borderRadius: "0.7rem",
+    //         paddingTop: "10px",
+    //         marginTop: "8px",
+    //         height: "89%"})
+    //     }
     
-    }, [scroll]);
+    // }, [scroll]);
 
     //for the onClick scroll to a position
     //const data = useRef(null);
@@ -66,7 +66,12 @@ const ArticlesListPage = () => {
                         <Col sm={4} style={{ left: "10%", position: "fixed", marginLeft: "-10px" }}>
                         <div >
                                     
-                                    <List disablePadding dense style={style}>
+                                <List disablePadding dense style={{backgroundColor: "rgba(245, 245, 245, 0.8)", 
+        position: "fixed",
+        width: "20%",
+        borderRadius: "0.7rem",
+        paddingTop: "10px",
+        marginTop: "48px"}}>
                 
                 <ListItem button onClick={() => navigateToElement("litterInVic")}>
                     <h5 class="text-dark font-weight-light" >

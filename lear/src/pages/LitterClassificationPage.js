@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import LitterClassificationCard from '../components/LitterClassificationCard';
 import classifications from './litter-classification-content';
-import { Form, FormControl, Button } from 'react-bootstrap';
+import { Form, FormControl, DropdownButton, Dropdown, Row, Col } from 'react-bootstrap';
 import Fuse from "fuse.js";
 import { BsSearch } from "react-icons/bs";
 import { BsFillQuestionCircleFill } from "react-icons/bs";
@@ -53,27 +53,11 @@ const LitterClassicationPage = () => {
             setData([]);
         }
     };
-    //searchData("");
-    // const searchData = (pattern) => {
-    //     if (!pattern) {
-    //         setData([]);
-    //         return;
-    //     }
-    //     const result = fuse.search(pattern);
-    //     const finalResult = [];
-    //     if (result.length) {
-    //         result.forEach((item) => {
-    //             finalResult.push(item.item);
-    //         });
-    //         setData(finalResult);
-    //     } else {
-    //         setData([]);
-    //     }
-    //};
-    // useEffect(() => {
-    //     setData(litterclassification);
-    // }
-    // );
+    const filterDataDropdown = (name) => {
+        const copyOfLitterclassification = litterclassification
+        const filteredData = copyOfLitterclassification.filter(item => item.info.Category === name);
+        setData(filteredData);
+    }
     const popover = (
         <Popover id="popover-basic" style={{ maxWidth: "500px" }}>
             <Popover.Title as="h3">How to use this litter classification page?</Popover.Title>
@@ -99,7 +83,7 @@ const LitterClassicationPage = () => {
         <>
             <div style={{
 
-                padding: "30px"
+                padding: "30px", marginTop: "-8px"
             }}>
                 <h1 class="text-dark font-weight-light" style={{ paddingTop: "40px", marginBlockEnd: "30px" }}>Litter Classification
                <span> &nbsp;</span>
@@ -111,19 +95,31 @@ const LitterClassicationPage = () => {
                 </h1>
                 <br />
                 <div className="Search">
-                    <span className="SearchSpan">
+
+                    <Row style={{ justifyContent: "center" }}>
                         <Form inline style={{ justifyContent: "center" }}>
                             <BsSearch style={{ height: "1.5rem", width: "1.5rem" }} /> <span>&nbsp;&nbsp;</span>
                             <FormControl style={{ width: "300px", marginRight: "20px !important", textAlign: "center" }} className="SearchInput" type="text" onChange={(e) => searchData(e.target.value)} placeholder="Search" className="mr-sm-2"
                             />
 
                         </Form>
-                    </span>
+                        <h4 class="text-dark font-weight-light" style={{ marginTop: "5px", marginRight: "10px" }}>or</h4>
+                        <DropdownButton id="dropdown-basic-button" variant={"info"} title="Choose a category from the list " style={{ zIndex: "400"}}>
+                            
+                                
+                            {litterclassification.map((item) => (
+                        <Dropdown.Item {...item} key={item.id} onClick={() => filterDataDropdown(item.info.Category)}>{item.info.Category}</Dropdown.Item>
+                    ))}  
+                    
+                                          
+                        </DropdownButton>
+                    </Row>
+
 
                 </div>
                 <div className="Container">
                     {data.map((item) => (
-                        <LitterClassificationCard {...item} key={item.id} />
+                        <LitterClassificationCard {...item}  key={item.id} />
                     ))}
                 </div>
             </div>
