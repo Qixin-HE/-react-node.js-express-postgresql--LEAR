@@ -46,7 +46,7 @@ const LitterClassificationCard = ({ info }) => {
         <Popover id="popover-basic">
             <Popover.Title as="h3">How to dispose</Popover.Title>
             <Popover.Content>
-            <p>{info['How to dispose']}</p>
+            <p style={{textAlign: "center"}}>{info['How to dispose']}</p>
             
       </Popover.Content>
         </Popover>

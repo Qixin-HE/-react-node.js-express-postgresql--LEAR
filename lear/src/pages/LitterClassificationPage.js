@@ -75,14 +75,17 @@ const LitterClassicationPage = () => {
     // }
     // );
     const popover = (
-        <Popover id="popover-basic">
-            <Popover.Title as="h3">What is litter classification page for?</Popover.Title>
+        <Popover id="popover-basic" style={{ maxWidth: "500px" }}>
+            <Popover.Title as="h3">How to use this litter classification page?</Popover.Title>
             <Popover.Content>
-                <p>The below litter classifier groups each type of litter into its own category and super-category. Each litter
+                <p>• The below litter classifier groups each type of litter into its own category and super-category. Each litter
         item card contains: </p>
-                <p>- an image of what the litter looks like. </p>
-                <p>- a timeline for decomposition</p>
-                <p>- a popup for how to correctly dispose of the litter type.</p>
+                <div style={{ paddingLeft: "25px" }}>
+                    <p>- an image of what the litter looks like. </p>
+                    <p>- a timeline for decomposition</p>
+                    <p>- a popup for how to correctly dispose of the litter type.</p>
+                </div>
+
                 <p>• To see the popup click on the question mark within the litter card.</p>
                 <p>• To remove the popup from your screen, click the question mark once again.</p>
 
@@ -101,11 +104,11 @@ const LitterClassicationPage = () => {
                 <h1 class="text-dark font-weight-light" style={{ paddingTop: "40px", marginBlockEnd: "30px" }}>Litter Classification
                <span> &nbsp;</span>
 
-                        <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-                            <BsFillQuestionCircleFill />
-                        </OverlayTrigger>
+                    <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+                        <BsFillQuestionCircleFill />
+                    </OverlayTrigger>
 
-                    </h1>
+                </h1>
                 <br />
                 <div className="Search">
                     <span className="SearchSpan">

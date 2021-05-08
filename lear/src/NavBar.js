@@ -15,7 +15,7 @@ const NavBar = () => {
 
     return (
     <>
-    <h5 class="text-dark font-weight-light">
+    <h5 class="text-dark font-weight-light" style={{ width: "100%"}}>
         <Navbar bg="light" variant="light" style={{ paddingRight: "200px"}}>
         
             <Nav className="container-fluid">
