@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
-import logo from './images/5120mp14logo.png';
-import SearchBar from './components/SearchBar';
+import React from 'react';
+
+import { Navbar, Nav} from 'react-bootstrap';
+import logo from './images/5120mp14logo.jpg';
+//import SearchBar from './components/SearchBar';
 
 
 const state = {
@@ -17,8 +17,7 @@ const NavBar = () => {
     <>
     <h5 class="text-dark font-weight-light" style={{ width: "100%"}}>
         <Navbar bg="light" variant="light" style={{ paddingRight: "200px",position: "fixed",
-    width: "100%",zIndex: "500",
-    marginTop: "-20px"}}>
+    width: "100%",zIndex: "500", marginTop: "-20px", paddingTop: "15px"}}>
         
             <Nav className="container-fluid">
                 <Navbar.Brand href="/">
@@ -28,6 +27,7 @@ const NavBar = () => {
                         width="130"
                         height="60"
                         className="d-inline-block align-top"
+                        style={{height: "90%", marginBottom: "-3px"}}
                     />{' '}
                 </Navbar.Brand>
 

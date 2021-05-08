@@ -47,7 +47,7 @@ div#page-body{
   padding-top: 74px;
   background-color: rgba(245, 245, 245, 0.40);
   padding-bottom: 60px;
-  min-height: 1300px;
+  min-height: 1500px;
   /* height: calc(100vh - 70px); */
 }
 /* div#page-body2{
@@ -225,7 +225,15 @@ p#carouselp {
   text-align: center;
 }
 
-/* to spacing the article navigation list */
 .MuiListItem-button {
  margin: 15px;
+}
+
+div#article_block {
+  background-color: rgba(245, 245, 245, 0.80); 
+  padding: 10px;
+  margin: -10px;
+  border-radius: 0.5rem;
+  height: 80%;
+  width: 100%;
 }

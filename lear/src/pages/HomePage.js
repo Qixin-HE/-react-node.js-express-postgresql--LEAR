@@ -10,7 +10,7 @@ import { Link, } from 'react-router-dom';
 const HomePage = () => (
     <>
      
-    <Container id="container1" fluid style={{ paddingLeft:"0px", marginTop: "-8px" }}>
+    <Container id="container1" fluid style={{ paddingLeft:"0px", marginTop: "-15px" }}>
   <Row>
     <Col>
     
@@ -161,6 +161,7 @@ const HomePage = () => (
                     </Card>
                     </div>
 </Container>
+
  
     </>
 
