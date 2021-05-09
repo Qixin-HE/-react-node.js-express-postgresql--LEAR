@@ -115,6 +115,7 @@ const ContactUsPage = () => {
                                                 alt="The Developer Picture."
                                                 className="img-fluid rounded shadow"
                                                 src={zoePic}
+                                                style={{width: "150px"}}
                                             />
                                             <p style={{ textAlign: "center", marginTop: "0.5rem", marginBottom: "0rem"}}><strong>Zoe / Qixin He</strong></p>
                                             <p style={{ textAlign: "center"}}>MIT</p>
@@ -231,7 +232,7 @@ const ContactUsPage = () => {
                                             • Litter classification page: The litter classification section will help users with identifying different types of litter and how to dispose of them correctly.
                                      </p>
                                         <p>
-                                            • Events page: Using our interactive mapping feature, users will have the ability to search for litter disposal sites, find litter bins, locate beach clean-up events, and identify how to get to and from each event.
+                                            • Disposal sites page: Using our interactive mapping feature, users will have the ability to view different litter disposal sites locations, find litter bins, and identify how to get there. Users can also navigate to the Eventbrite site to create new clean-up events!
                                     </p>
                                         <p>
                                             • Laws and penalties page: For users who want to understand litter legislation, the legal information section will provide users with the latest legislation regarding littering as well as data collected on fines.

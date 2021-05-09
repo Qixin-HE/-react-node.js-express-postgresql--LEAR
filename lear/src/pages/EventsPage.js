@@ -69,6 +69,10 @@ const EventsPage = () => {
         "https://www.google.com.au/maps/dir/" + directionLat + "," + directionLong
 
     const navigateToExternalMap = (url) => {
+        if (directionLat === 0){
+            alert("Please click on a marker before you navigate to Google map!")
+            return
+        }
         const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
     }
@@ -143,7 +147,7 @@ const EventsPage = () => {
         <>
         
             <h1 class="text-dark font-weight-light" style={{ paddingTop: "40px", marginBlockEnd: "30px" }}>
-                Events and related locations</h1>
+            Disposal sites locations</h1>
 
 
             <Container style={{

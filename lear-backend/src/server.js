@@ -192,6 +192,32 @@ app.get('/sites', (req, res) => {
   })
 })
 
+//for twitter feed
+//'select * from json_tweet order by random() limit 15'
+const getTwitters = () => {
+  return new Promise(function(resolve, reject) {
+    pool.query('select * from json_tweet', (error, results) => {
+      if (error) {
+        reject(error)
+      }
+      console.log(results.rows);
+      resolve(results.rows);
+      
+    })
+  }) 
+}
+
+app.get('/twitters', (req, res) => {
+  getTwitters().then(response => {
+  
+    res.status(200).send(response);
+  })
+  .catch(error => {
+
+    res.status(500).send(error);
+  })
+})
+
 // const client = new Client({
 //     user: 'my_user',
 //     host: 'localhost',

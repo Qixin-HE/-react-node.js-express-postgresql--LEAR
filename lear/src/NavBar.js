@@ -36,7 +36,7 @@ const NavBar = () => {
                 <Nav.Link href="/contactus">About Us</Nav.Link>
                 <Nav.Link href="/litterclassification">Litter Classification</Nav.Link>
                 <Nav.Link href="/article-list">Laws and Penalties</Nav.Link>
-                <Nav.Link href="/events">Events</Nav.Link>
+                <Nav.Link href="/events">Disposal sites</Nav.Link>
                 
                 <>
                     {/* <SearchBar /> */}
