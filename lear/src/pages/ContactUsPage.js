@@ -67,7 +67,7 @@ const ContactUsPage = () => {
                             </List>
                         </div>
                     </Col>
-                    <Col sm={8} style={{ left: "25%" }}>
+                    <Col sm={8} style={{ left: "30%" }}>
                         <Row>
                             <h1 class="text-dark font-weight-light" style={{ paddingTop: "40px", marginBlockEnd: "30px" }}>
                                 About Us
