@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import DataService from "../services/lear.service";
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, ButtonGroup, ToggleButton, Button, Popover, OverlayTrigger, Tooltip, Image } from 'react-bootstrap';
+import { Container, Row, Col, ButtonGroup, ToggleButton, Button, Popover, OverlayTrigger, Tooltip, Image, Modal } from 'react-bootstrap';
 import MapContainer from '../components/MapContainer';
 import { Last } from 'react-bootstrap/esm/PageItem';
 import { BsFillQuestionCircleFill } from "react-icons/bs";
+
 
 
 const EventsPage = () => {
@@ -64,7 +65,10 @@ const EventsPage = () => {
         // console.log(externalMapLink)
 
     }
+    // const [show, setShow] = useState(false);
 
+    // const handleClose = () => setShow(false);
+    // const handleShow = () => setShow(true);
     const externalMapLink =
         "https://www.google.com.au/maps/dir/" + directionLat + "," + directionLong
 
@@ -72,6 +76,25 @@ const EventsPage = () => {
         if (directionLat === 0){
             alert("Please click on a marker before you navigate to Google map!")
             return
+            // (
+            //     <>
+                
+            //     <Modal show={show} onHide={handleClose}>
+            //       <Modal.Header closeButton>
+            //         <Modal.Title>Modal heading</Modal.Title>
+            //       </Modal.Header>
+            //       <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+            //       <Modal.Footer>
+            //         <Button variant="secondary" onClick={handleClose}>
+            //           Close
+            //         </Button>
+            //         <Button variant="primary" onClick={handleClose}>
+            //           Save Changes
+            //         </Button>
+            //       </Modal.Footer>
+            //     </Modal>
+            //   </>
+            // )
         }
         const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null

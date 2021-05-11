@@ -60,7 +60,7 @@ const getTwitter = () => {
     return (
     <>
 
-        <Container id="container1" fluid style={{ paddingLeft: "0px", marginTop: "-15px" }}>
+        <Container id="container1" fluid style={{ paddingLeft: "0px", marginTop: "-22px" }}>
             <Row>
                 <Col>
 
@@ -205,7 +205,7 @@ const getTwitter = () => {
                     <img className="d-block w-100"
                         src={pic05}
                         alt="white background"
-                        style={{ position: "absolute" }}
+                        style={{ position: "absolute", height: "1000px" }}
                     />
                 <Card id="bottom-card" style={{
                     display: "flex",
