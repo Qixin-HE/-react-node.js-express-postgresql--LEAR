@@ -57,6 +57,7 @@ const ArticlesListPage = () => {
     // }
     const [news, setNews] = useState([]);
     useEffect(() => {
+        // fetch('https://newsapi.org/v2/everything?q=((litter)AND(melbourne))OR((volunteer)AND(clean)AND(melbourne))OR((polution)AND(melbourne))OR((litter)AND(victoria))&from=2021-04-25&sortBy=popularity&apiKey=6908e643d9a442798796f3906c8b1c1a')
         fetch('/api/news')
   .then(response => response.json())
   .then(data => {
