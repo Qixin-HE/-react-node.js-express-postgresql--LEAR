@@ -127,7 +127,7 @@ const LitterClassicationPage = () => {
 
                         </Form>
                         <h4 class="text-dark font-weight-light" style={{ marginTop: "5px", marginRight: "10px" }}>or</h4>
-                        <DropdownButton id="dropdown-basic-button" variant={"info"} title="Sroll through and Choose a category from the list " style={{ zIndex: "400"}}>
+                        <DropdownButton id="dropdown-basic-button" variant={"info"} title="Scroll through and choose a category from the list " style={{ zIndex: "400"}}>
                         <Dropdown.Item  onClick={() => filterDataDropdown("all")}>All</Dropdown.Item>
                                 
                             {litterclassification.map((item) => (

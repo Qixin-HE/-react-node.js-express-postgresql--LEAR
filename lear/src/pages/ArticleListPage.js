@@ -57,7 +57,7 @@ const ArticlesListPage = () => {
     // }
     const [news, setNews] = useState([]);
     useEffect(() => {
-        fetch('https://newsapi.org/v2/everything?q=((litter)AND(melbourne))OR((volunteer)AND(clean)AND(melbourne))OR((polution)AND(melbourne))OR((litter)AND(victoria))&from=2021-04-25&sortBy=popularity&apiKey=6908e643d9a442798796f3906c8b1c1a')
+        fetch('/api/news')
   .then(response => response.json())
   .then(data => {
     setNews(data.articles)});
@@ -254,7 +254,7 @@ const ArticlesListPage = () => {
                                 <br />
                                 <Row>
                                     <div id="data" style={{
-                                        backgroundColor: "rgba(245, 245, 245, 0.80)", padding: "10px", margin: "-10px",
+                                        backgroundColor: "rgba(245, 245, 245, 0.90)", padding: "10px", margin: "-10px",
                                         borderRadius: "0.5rem", height: "80%"
                                     }}>
                                         <h5 style={{ textAlign: "left" }}>
@@ -282,7 +282,7 @@ const ArticlesListPage = () => {
                                 </Row>
                                 <br /><br />
                                 <Row>
-                                <div id="news" style={{ backgroundColor: "rgba(245, 245, 245, 0.80)", padding: "10px", margin: "-10px",
+                                <div id="news" style={{ backgroundColor: "rgba(245, 245, 245, 0.90)", padding: "10px", margin: "-10px",
                                                                         borderRadius: "0.5rem", height: "80%", width: "110%",marginTop: "50px"
                                                                     }}>
                                 <h1 class="text-dark font-weight-light">Current news related to litter in Victoria</h1>
