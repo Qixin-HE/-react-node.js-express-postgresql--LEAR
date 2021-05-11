@@ -146,8 +146,7 @@ const EventsPage = () => {
     return (
         <>
         
-            <h1 classs="text-dark font-weight-light" style={{ paddingTop: "40px", marginBlockEnd: "30px" }}>
-            Disposal Sites Locations</h1>
+            <h1 class="text-dark font-weight-light" style={{ paddingTop: "40px", marginBlockEnd: "30px" }}>Disposal Sites Locations</h1>
 
 
             <Container style={{
@@ -173,15 +172,15 @@ const EventsPage = () => {
 
 
                     </Col>
-                    <Col sm={2} style={{ marginLeft: "-30px" }}>
+                    <Col sm={2} style={{ marginLeft: "-55px", maxWidth: "20%" }}>
 
-                        <Row style={{ marginBottom: "40px", paddingTop: "50px"}}>
-                        <h5 style={{ textAlign: "left" }}>Change a marker set on the map<span> &nbsp;</span>
+                        <Row style={{ marginBottom: "40px", paddingTop: "50px"}}> 
+                        <h5 style={{ textAlign: "left" }}>Change a marker set </h5> <h5>on the map<span> &nbsp;</span>
                         <OverlayTrigger trigger="click" placement="bottom" overlay={popoverMaker}>
                                 <BsFillQuestionCircleFill />
                             </OverlayTrigger>
-                            
-                        </h5> 
+                            </h5>
+                        
                             <ButtonGroup toggle vertical>
                                 {radios.map((radio, idx) => (
                                     <ToggleButton
