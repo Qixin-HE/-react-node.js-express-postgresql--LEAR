@@ -130,7 +130,7 @@ const ContactUsPage = () => {
                                                 alt="The Data Specialist Picture."
                                                 className="img-fluid rounded shadow"
                                                 src={danielPic}
-                                                style={{width: "100px"}}
+                                                style={{width: "100px",height: "75px"}}
                                             />
                                             <p style={{ textAlign: "center", marginTop: "0.5rem", marginBottom: "0rem"}}><strong>Daniel Fornarino</strong></p>
                                             <p style={{ textAlign: "center"}}>MDS</p>
@@ -143,9 +143,9 @@ const ContactUsPage = () => {
                                                 style={{width: "100px",  height: "75px"
                                             }}
                                             />
-                                            <p style={{ textAlign: "center", marginTop: "0.5rem", marginBottom: "0rem"}}><strong>Kartik Gera</strong></p>
-                                            
-                                            <p style={{ textAlign: "center", marginTop: "23px"}}>MDS</p>
+                                            <p style={{ textAlign: "center", marginTop: "0.5rem", marginBottom: "0rem"}}><strong>Kartik</strong></p>
+                                            <p style={{ textAlign: "center", marginBottom: "0rem"}}><strong>Gera</strong></p>
+                                            <p style={{ textAlign: "center"}}>MDS</p>
                                         </Col>
                                         <Col sm={8}>
                                             <p style={{marginTop: "20px"}}>
