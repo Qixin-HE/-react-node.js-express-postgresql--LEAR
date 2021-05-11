@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Navbar, Nav} from 'react-bootstrap';
-import logo from './images/5120mp14logo.jpg';
+import logo from './images/5120mp14logo_noSlogan.jpg';
 //import SearchBar from './components/SearchBar';
 
 
