@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ArticlesList from '../components/ArticlesList';
-import SideBar from '../components/SideBar';
+
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, NavItem, } from 'react-bootstrap';
 import graph from '../images/fineGraph.jpg';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import { FixedSizeList } from 'react-window';
 import navigateToElement from '../components/ArticleNaviation';
 
 
@@ -56,6 +55,28 @@ const ArticlesListPage = () => {
     //     const element = document.getElementById(name)
     //     element.scrollIntoView();
     // }
+    const [news, setNews] = useState([]);
+    useEffect(() => {
+        fetch('https://newsapi.org/v2/everything?q=((litter)AND(melbourne))OR((volunteer)AND(clean)AND(melbourne))OR((polution)AND(melbourne))OR((litter)AND(victoria))&from=2021-04-25&sortBy=popularity&apiKey=6908e643d9a442798796f3906c8b1c1a')
+  .then(response => response.json())
+  .then(data => {
+    setNews(data.articles)});
+    //console.log(news);
+    }, []);
+    const ARow = ({ index, style, data }) => (
+        <div className="Row" style={style}> 
+          <div>
+            <h4 class="text-dark font-weight-light">{data[index].title}</h4>
+            <p class="text-dark font-weight-light">{data[index].description}</p>
+            <p class="text-dark font-weight-light">Publish time: {data[index].publishedAt}</p>
+            <p>News url: <Link to={{ pathname: data[index].url }} target="_blank">{data[index].url}</Link></p>
+            {/* <p>News url: {data[index].url}</p> */}
+            <br />
+            </div>
+            
+        </div>
+      );
+    
 
     return (
         <>
@@ -66,12 +87,13 @@ const ArticlesListPage = () => {
                         <Col sm={4} style={{ left: "10%", position: "fixed", marginLeft: "-10px" }}>
                         <div >
                                     
-                                <List disablePadding dense style={{backgroundColor: "rgba(245, 245, 245, 0.8)", 
-        position: "fixed",
-        width: "20%",
-        borderRadius: "0.7rem",
-        paddingTop: "10px",
-        marginTop: "48px"}}>
+                                <List disablePadding dense style={{
+                                    backgroundColor: "rgba(245, 245, 245, 0.8)", 
+                                    position: "fixed",
+                                    width: "20%",
+                                    borderRadius: "0.7rem",
+                                    paddingTop: "10px",
+                                    marginTop: "48px"}}>
                 
                 <ListItem button onClick={() => navigateToElement("litterInVic")}>
                     <h5 class="text-dark font-weight-light" >
@@ -103,6 +125,11 @@ const ArticlesListPage = () => {
                         Fine data 2020</h5>
                     
                 </ListItem>
+                <ListItem button onClick={() => navigateToElement("news")}>
+                    <h5 class="text-dark font-weight-light" >
+                        News</h5>
+                    
+                </ListItem>
             </List>
                                 </div>
                         </Col>
@@ -112,6 +139,8 @@ const ArticlesListPage = () => {
                                     The Laws related to litter action in Victoria
                                 </h1>
                             </Row>
+                            <br />
+                            <br />
                             <Row>
                                 <div id="litterInVic">
                                     <h5 style={{ textAlign: "left" }}>
@@ -201,7 +230,7 @@ const ArticlesListPage = () => {
                                 </p>
                                     </div>
                                 </Row>
-
+                                <br />
                                 
 
                                 <br />
@@ -251,16 +280,58 @@ const ArticlesListPage = () => {
  </p>
                                     </div>
                                 </Row>
-
+                                <br /><br />
+                                <Row>
+                                <div id="news" style={{ backgroundColor: "rgba(245, 245, 245, 0.80)", padding: "10px", margin: "-10px",
+                                                                        borderRadius: "0.5rem", height: "80%", width: "110%",marginTop: "50px"
+                                                                    }}>
+                                <h1 class="text-dark font-weight-light">Current news related to litter in Victoria</h1>
+                                <br />
+                                <p style={{textAlign:"center"}}>The below window is scrollable, you can sroll and have a read on the news. </p>
+                                <p style={{textAlign:"center"}}>==============================================================</p>
+                                {news.length > 0 ?
+                                        <FixedSizeList
+                                        className="List"
+                                        
+                                        style={{position: "relative",
+                                        width: "100%"}} // adding styles
+                                        itemData={news} // adding your own data
+                                        height={500}
+                                        itemCount={news.length} // now becomes length of the state array
+                                        itemSize={260}
+                                        >
+                                        {ARow}
+                                        </FixedSizeList> : null}
+                                        <p style={{textAlign:"center"}}>==============================================================</p>
+                                        </div>
+                                </Row>
                             
 
 
                         </Col>
                     </Row>
                 </Container>
+                
+            </div>
+            <div>
+            {/* {news.length > 0 ? 
+      news.map((item) => (
+        // const string = item.info.id.toString();
+        // console.log(string);
+        //console.log(`'${item.info.id}'`);
+        //const id = item.info.id.toString();
+        //const id = `${item.info.id}`;
+        //console.log(item.id_str);
+          <p>{item.author}</p>
+        
+      )): null} */}
+      <div>
+      
+            </div>
             </div>
         </>
     );
+    
 
 }
 

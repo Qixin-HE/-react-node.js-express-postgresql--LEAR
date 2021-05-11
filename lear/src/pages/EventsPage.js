@@ -146,8 +146,8 @@ const EventsPage = () => {
     return (
         <>
         
-            <h1 class="text-dark font-weight-light" style={{ paddingTop: "40px", marginBlockEnd: "30px" }}>
-            Disposal sites locations</h1>
+            <h1 classs="text-dark font-weight-light" style={{ paddingTop: "40px", marginBlockEnd: "30px" }}>
+            Disposal Sites Locations</h1>
 
 
             <Container style={{

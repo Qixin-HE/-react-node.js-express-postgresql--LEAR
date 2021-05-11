@@ -3,8 +3,7 @@ import LitterClassificationCard from '../components/LitterClassificationCard';
 import classifications from './litter-classification-content';
 import { Form, FormControl, DropdownButton, Dropdown, Row, Col } from 'react-bootstrap';
 import Fuse from "fuse.js";
-import { BsSearch } from "react-icons/bs";
-import { BsFillQuestionCircleFill } from "react-icons/bs";
+import { BsSearch, BsFillQuestionCircleFill } from "react-icons/bs";
 import { Popover, OverlayTrigger } from 'react-bootstrap';
 
 const LitterClassicationPage = () => {
@@ -19,7 +18,7 @@ const LitterClassicationPage = () => {
         //searchData("");
     }, [litterclassification]);
     const getLitterClassification = () => {
-        fetch('/litterclassification')
+        fetch('/litter')
             //fetch('database-1.cbsg9s7iau2c.us-east-2.rds.amazonaws.com')
 
             .then(response => {
@@ -54,6 +53,10 @@ const LitterClassicationPage = () => {
         }
     };
     const filterDataDropdown = (name) => {
+        if (name === "all"){
+            setData(litterclassification);
+            return
+        }
         const copyOfLitterclassification = litterclassification
         const filteredData = copyOfLitterclassification.filter(item => item.info.Category === name);
         setData(filteredData);
@@ -82,7 +85,6 @@ const LitterClassicationPage = () => {
     return (
         <>
             <div style={{
-
                 padding: "30px", marginTop: "-8px"
             }}>
                 <h1 class="text-dark font-weight-light" style={{ paddingTop: "40px", marginBlockEnd: "30px" }}>Litter Classification
@@ -105,7 +107,7 @@ const LitterClassicationPage = () => {
                         </Form>
                         <h4 class="text-dark font-weight-light" style={{ marginTop: "5px", marginRight: "10px" }}>or</h4>
                         <DropdownButton id="dropdown-basic-button" variant={"info"} title="Choose a category from the list " style={{ zIndex: "400"}}>
-                            
+                        <Dropdown.Item  onClick={() => filterDataDropdown("all")}>All</Dropdown.Item>
                                 
                             {litterclassification.map((item) => (
                         <Dropdown.Item {...item} key={item.id} onClick={() => filterDataDropdown(item.info.Category)}>{item.info.Category}</Dropdown.Item>

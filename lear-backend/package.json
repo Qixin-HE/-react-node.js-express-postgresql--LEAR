@@ -11,13 +11,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "newsapi": "^2.4.1",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "pg-promise": "^10.9.5",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "twitter": "^1.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.13",

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import carouselsImg from '../images/zjt-lear.jpg';
 import pic02 from '../images/homepagepic2.jpg';
 import pic03 from '../images/homepagepic3.jpg';
@@ -11,19 +11,53 @@ import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterH
 import { FixedSizeList as List } from 'react-window';
 
 
-const twitterData =
-    [
-        { "id": '1390979801989648387' },
-        { "id": '1390960964405764096' },
-        { "id": '1388265512254115840' },
-        { "id": '1391094717711110145' },
-        { "id": '1391169021211447299' },
-        { "id": '1390265586060390400' },
-        { "id": '1390263819079987200' }
+// const twitterData =
+//     [
+//         { "id": '1390979801989648387' },
+//         { "id": '1390960964405764096' },
+//         { "id": '1388265512254115840' },
+//         { "id": '1391094717711110145' },
+//         { "id": '1391169021211447299' },
+//         { "id": '1390265586060390400' },
+//         { "id": '1390263819079987200' }
         
-    ]
+//     ]
 
-const HomePage = () => (
+
+const HomePage = () => {
+    const [twitter, setTwitter] = useState([]);
+useEffect(() => {
+  getTwitter();
+//    if (twitter.length > 0){
+//   alert(twitter[0].statuses.id_str);
+//    }
+
+  //setData(litterclassification);
+}, []);
+const getTwitter = () => {
+    fetch('/api/twitters')
+      
+
+      .then(response => {
+
+        return response.json();
+      })
+      .then(data => {
+          
+        setTwitter(data.statuses);
+      });
+  };
+  const Column = ({ index, style, data }) => 
+  (
+   < div className="Col" style={style}
+   >
+      <TwitterTweetEmbed
+        tweetId={data[index].id_str}
+      />
+      {/* <p>`{data[index].info.id}`</p> */}
+    </div>  
+  );
+    return (
     <>
 
         <Container id="container1" fluid style={{ paddingLeft: "0px", marginTop: "-15px" }}>
@@ -186,19 +220,21 @@ const HomePage = () => (
                                 Information from Twitter
                                 </h1></Card.Title>
                         <Card.Text>
-                            <List
+                            {twitter.length > 0 ? <List
                                 height={75}
-                                itemCount={twitterData.length}
+                                // itemCount={twitterData.length}
+                                itemCount={twitter.length}
                                 itemSize={300}
                                 layout="horizontal"
                                 width={1500}
                                 height={610}
-                                itemData={twitterData}
+                                itemData={twitter}
+                                // itemData={twitterData}
                                 
 
                             >
                                 {Column}
-                            </List>
+                            </List> : null}
 
                                
                         </Card.Text>
@@ -215,15 +251,9 @@ const HomePage = () => (
 
 
 );
-const Column = ({ index, style, data }) => 
-  (
-   < div className="Col" style={style}
-   >
-      <TwitterTweetEmbed
-        tweetId={data[index].id}
-      />
-      {/* <p>`{data[index].info.id}`</p> */}
-    </div>  
-  );
+
+}
+
+
 
 export default HomePage;

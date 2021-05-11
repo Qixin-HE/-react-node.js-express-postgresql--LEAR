@@ -67,13 +67,13 @@ const LitterClassificationCard = ({ info }) => {
         </Link> */}
         <div className="Description"><strong>Decomposition time:</strong> {info.Decomposition}</div>
         <div className="Description">
-        <h7 style={{ textAlign: "left" }}>How to dispose:   <span> &nbsp;</span>
+        <p style={{ textAlign: "left" }}><strong>How to dispose:</strong>   <span> &nbsp;</span>
                            
                            <OverlayTrigger trigger="click" placement="bottom" overlay={popoverCard}>
                                <BsFillQuestionCircleFill />
                            </OverlayTrigger>
                            
-                       </h7>
+                       </p>
                        </div>
         </div>
     </div>
