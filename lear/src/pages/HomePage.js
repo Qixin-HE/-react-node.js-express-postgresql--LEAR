@@ -218,7 +218,11 @@ const getTwitter = () => {
                         <Card.Title style={{paddingBottom: "20px" }}>
                             <h1 class="text-dark font-weight-light">
                                 Information from Twitter
-                                </h1></Card.Title>
+                                </h1>
+                                <h3 class="text-dark font-weight-light" style={{textAlign: "center"}}>Include in your tweet the words “litter Victoria” and your tweet will appear below. </h3>
+                                <h3 class="text-dark font-weight-light" style={{textAlign: "center"}}>You can use this to create conversation, promote an event or just to see your name appear below. </h3>
+                                <h3 class="text-dark font-weight-light" style={{textAlign: "center"}}><strong>Try it out!</strong></h3>
+                                </Card.Title>
                         <Card.Text>
                             {twitter.length > 0 ? <List
                                 height={75}
