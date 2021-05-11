@@ -237,3 +237,8 @@ div#article_block {
   height: 80%;
   width: 100%;
 }
+/* for the scroll bar on dropdown menu on litterclassification  */
+.dropdown-menu {
+  height: 500px;
+  overflow-y: scroll;
+}

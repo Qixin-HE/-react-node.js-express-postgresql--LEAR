@@ -8,15 +8,36 @@ import { Popover, OverlayTrigger } from 'react-bootstrap';
 
 const LitterClassicationPage = () => {
     const [litterclassification, setLitterclassification] = useState([]);
+
     useEffect(() => {
         getLitterClassification();
-        //setData(litterclassification);
+        
     }, []);
     useEffect(() => {
         //getLitterClassification();
         setData(litterclassification);
         //searchData("");
     }, [litterclassification]);
+    // const [superCategory, setSuperCategory] = useState([]);
+    // useEffect(() => {
+    //     const copyOfLitterclassification = litterclassification
+    //     // const fulteredCategory = copyOfLitterclassification.reduce((acc, name) => (
+    //     //     {
+    //     //         ...acc,
+    //     //         sc:[name]
+    //     //     }
+    //     // ),{});
+    //     // console.log(fulteredCategory)
+    //     var superCategoryList = [];
+    //     const filteredCategory = copyOfLitterclassification.forEach(function(item, index){
+    //         if(!superCategoryList.includes(item.info['Super category']))
+    //         superCategoryList.push(item)
+    //     })
+    //     setSuperCategory(filteredCategory);
+    
+        
+        
+    // }, []);
     const getLitterClassification = () => {
         fetch('/litter')
             //fetch('database-1.cbsg9s7iau2c.us-east-2.rds.amazonaws.com')
@@ -106,7 +127,7 @@ const LitterClassicationPage = () => {
 
                         </Form>
                         <h4 class="text-dark font-weight-light" style={{ marginTop: "5px", marginRight: "10px" }}>or</h4>
-                        <DropdownButton id="dropdown-basic-button" variant={"info"} title="Choose a category from the list " style={{ zIndex: "400"}}>
+                        <DropdownButton id="dropdown-basic-button" variant={"info"} title="Sroll through and Choose a category from the list " style={{ zIndex: "400"}}>
                         <Dropdown.Item  onClick={() => filterDataDropdown("all")}>All</Dropdown.Item>
                                 
                             {litterclassification.map((item) => (
@@ -115,6 +136,7 @@ const LitterClassicationPage = () => {
                     
                                           
                         </DropdownButton>
+                        {/* <h5 style={{color: "grey", textAlign: "left"}}><span>&nbsp;&nbsp;</span>(You can scroll through the dropdown list.)</h5> */}
                     </Row>
 
 
