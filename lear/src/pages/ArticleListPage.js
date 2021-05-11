@@ -222,11 +222,11 @@ const ArticlesListPage = () => {
                                 <p>
                                 This means that, currently, the penalties for law 1 and 2 are as follows:
                                 </p>
-                                <p>
-                                •  a fine of up to $3,304.40 for Law 1
+                                <p><strong>
+                                •  a fine of up to $3,304.40 for Law 1</strong>
                                 </p>
-                                <p>
-                                •  a fine of up to $3,304.40 and/or imprisonment for up to 1 month for Law 2
+                                <p><strong>
+                                •  a fine of up to $3,304.40 and/or imprisonment for up to 1 month for Law 2</strong>
                                 </p>
                                     </div>
                                 </Row>
