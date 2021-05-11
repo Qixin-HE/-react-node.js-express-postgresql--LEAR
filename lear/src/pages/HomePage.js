@@ -116,7 +116,7 @@ const getTwitter = () => {
 
                         <Card.Body style={{ paddingBlock: "60px" }}>
                             <Card.Title>
-                                <h1 class="text-dark font-weight-light">Disposal sites</h1></Card.Title>
+                                <h1 class="text-dark font-weight-light">Disposal Sites</h1></Card.Title>
                             <Card.Text>
                                 <h3 class="text-dark font-weight-light" style={{ textAlign: "center" }}>
                                     Our interactive map will provide you with all the information you could need.</h3>
@@ -155,7 +155,7 @@ const getTwitter = () => {
                                 <h1 class="text-dark font-weight-light">Legislation and News</h1></Card.Title>
                             <Card.Text>
                                 <h3 class="text-dark font-weight-light" style={{ textAlign: "center" }}>
-                                    Find out the current legislation and penalties as well as news from around the workld about litter.</h3>
+                                    Find out the current legislation and penalties as well as news from around the Victoria about litter.</h3>
                             </Card.Text>
                             <Link style={{ display: "flex", alignItems: "center", justifyContent: "center" }} to="/article-list">
                                 <Button variant="info" size="lg" style={{ paddingLeft: "60px", paddingRight: "60px" }}>Find out More</Button>
