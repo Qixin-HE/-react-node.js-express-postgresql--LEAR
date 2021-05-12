@@ -36,8 +36,6 @@ useEffect(() => {
 }, []);
 const getTwitter = () => {
     fetch('/api/twitters')
-      
-
       .then(response => {
 
         return response.json();

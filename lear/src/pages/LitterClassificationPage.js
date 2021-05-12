@@ -8,6 +8,8 @@ import { Popover, OverlayTrigger } from 'react-bootstrap';
 
 const LitterClassicationPage = () => {
     const [litterclassification, setLitterclassification] = useState([]);
+    //for dropdown list
+    const[superCategory, setSuperCategory] = useState([]);
 
     useEffect(() => {
         getLitterClassification();
@@ -16,28 +18,41 @@ const LitterClassicationPage = () => {
     useEffect(() => {
         //getLitterClassification();
         setData(litterclassification);
-        //searchData("");
+        const filterSuperCategory = filterSuperCategoryForDropdownList(litterclassification);
+        setSuperCategory(filterSuperCategory);
     }, [litterclassification]);
-    // const [superCategory, setSuperCategory] = useState([]);
-    // useEffect(() => {
-    //     const copyOfLitterclassification = litterclassification
-    //     // const fulteredCategory = copyOfLitterclassification.reduce((acc, name) => (
-    //     //     {
-    //     //         ...acc,
-    //     //         sc:[name]
-    //     //     }
-    //     // ),{});
-    //     // console.log(fulteredCategory)
-    //     var superCategoryList = [];
-    //     const filteredCategory = copyOfLitterclassification.forEach(function(item, index){
-    //         if(!superCategoryList.includes(item.info['Super category']))
-    //         superCategoryList.push(item)
-    //     })
-    //     setSuperCategory(filteredCategory);
-    
-        
-        
-    // }, []);
+    //var superCategory = [];
+
+    const filterSuperCategoryForDropdownList = () => {
+        var superCategoryList = [];
+        var superCategoryNameList = [];
+        litterclassification.forEach(item => {
+            const superCategoryName = item.info['Super category'];
+            
+            if (!superCategoryNameList.includes(superCategoryName)) {
+                superCategoryNameList.push(superCategoryName);
+                const NumberOfItsSubCategory = countSubcategoryOfSuperCategory(superCategoryName);
+                const thisObject = {
+                    superCategoryName,
+                    NumberOfItsSubCategory
+                }
+                superCategoryList.push(thisObject)
+            }
+        })
+        return superCategoryList;
+    };
+
+    //It takes a category name as param and count how many of it in its super category
+    const countSubcategoryOfSuperCategory = (name) => {
+        var itemCategory = [];
+        litterclassification.forEach(item =>{
+            const superCategoryName = item.info['Super category'];
+            itemCategory.push(superCategoryName);
+        })
+        const numberOfItInTheSuperCategory = itemCategory.filter(item => item === name).length;
+        return numberOfItInTheSuperCategory;
+    }
+
     const getLitterClassification = () => {
         fetch('/litter')
             //fetch('database-1.cbsg9s7iau2c.us-east-2.rds.amazonaws.com')
@@ -74,12 +89,12 @@ const LitterClassicationPage = () => {
         }
     };
     const filterDataDropdown = (name) => {
-        if (name === "all"){
+        if (name === "all") {
             setData(litterclassification);
             return
         }
         const copyOfLitterclassification = litterclassification
-        const filteredData = copyOfLitterclassification.filter(item => item.info.Category === name);
+        const filteredData = copyOfLitterclassification.filter(item => item.info['Super category'] === name);
         setData(filteredData);
     }
     const popover = (
@@ -127,14 +142,14 @@ const LitterClassicationPage = () => {
 
                         </Form>
                         <h4 class="text-dark font-weight-light" style={{ marginTop: "5px", marginRight: "10px" }}>or</h4>
-                        <DropdownButton id="dropdown-basic-button" variant={"info"} title="Scroll through and choose a category from the list " style={{ zIndex: "400"}}>
-                        <Dropdown.Item  onClick={() => filterDataDropdown("all")}>All</Dropdown.Item>
-                                
-                            {litterclassification.map((item) => (
-                        <Dropdown.Item {...item} key={item.id} onClick={() => filterDataDropdown(item.info.Category)}>{item.info.Category}</Dropdown.Item>
-                    ))}  
-                    
-                                          
+                        <DropdownButton id="dropdown-basic-button" variant={"info"} title="Scroll through and choose a category from the list " style={{ zIndex: "400" }}>
+                            <Dropdown.Item onClick={() => filterDataDropdown("all")}>All</Dropdown.Item>
+
+                            {superCategory.map((item) => (
+                                <Dropdown.Item {...item} key={item.id} onClick={() => filterDataDropdown(item.superCategoryName)}>{item.superCategoryName}({item.NumberOfItsSubCategory})</Dropdown.Item>
+                            ))}
+
+
                         </DropdownButton>
                         {/* <h5 style={{color: "grey", textAlign: "left"}}><span>&nbsp;&nbsp;</span>(You can scroll through the dropdown list.)</h5> */}
                     </Row>
@@ -143,7 +158,7 @@ const LitterClassicationPage = () => {
                 </div>
                 <div className="Container">
                     {data.map((item) => (
-                        <LitterClassificationCard {...item}  key={item.id} />
+                        <LitterClassificationCard {...item} key={item.id} />
                     ))}
                 </div>
             </div>

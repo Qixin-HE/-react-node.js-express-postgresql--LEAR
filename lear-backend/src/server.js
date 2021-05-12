@@ -114,7 +114,7 @@ const getLitterClassification = () => {
 
 app.get('/litter', (req, res) => {
   getLitterClassification().then(response => {
-    console.log(response);
+    //console.log(response);
     res.status(200).send(response);
   })
     .catch(error => {
