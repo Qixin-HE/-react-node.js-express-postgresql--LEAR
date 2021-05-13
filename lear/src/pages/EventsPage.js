@@ -195,7 +195,7 @@ const EventsPage = () => {
                     <Col sm={2} style={{ marginLeft: "-55px", maxWidth: "20%" }}>
 
                         <Row style={{ marginBottom: "40px", paddingTop: "50px"}}> 
-                        <h5 style={{ textAlign: "left" }}>Change a marker set </h5> <h5>on the map<span> &nbsp;</span>
+                        <h5 style={{ textAlign: "left" }}>Change a marker set </h5> <h5 style={{ textAlign: "left" }}>on the map<span> &nbsp;</span>
                         <OverlayTrigger trigger="click" placement="bottom" overlay={popoverMaker}>
                                 <BsFillQuestionCircleFill />
                             </OverlayTrigger>
@@ -218,7 +218,7 @@ const EventsPage = () => {
                             </ButtonGroup>
                         </Row>
                         <Row style={{  marginBottom: "40px"}}>
-                            <h5>Get to this location</h5>
+                            <h5 style={{ textAlign: "left" }}>Get to this location</h5>
                             <h5 style={{ textAlign: "left" }}>   <span> &nbsp;</span>
                            
                            <OverlayTrigger trigger="click" placement="bottom" overlay={popoverGooglemapLink}>
@@ -232,7 +232,7 @@ const EventsPage = () => {
 
                         </Row>
                         <Row>
-                            <h5>Create an event on Eventbrite</h5>
+                            <h5 style={{ textAlign: "left" }}>Create an event on Eventbrite</h5>
                             <h5 style={{ textAlign: "left" }}>   <span> &nbsp;</span>
                            
                            <OverlayTrigger trigger="click" placement="bottom" overlay={popoverEventBtn}>
