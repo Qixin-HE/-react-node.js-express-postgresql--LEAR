@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import LitterClassificationCard from '../components/LitterClassificationCard';
-import classifications from './litter-classification-content';
 import { Form, FormControl, DropdownButton, Dropdown, Row, Col } from 'react-bootstrap';
 import Fuse from "fuse.js";
 import { BsSearch, BsFillQuestionCircleFill } from "react-icons/bs";

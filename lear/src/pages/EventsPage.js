@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import DataService from "../services/lear.service";
-import { Link } from 'react-router-dom';
-import { Container, Row, Col, ButtonGroup, ToggleButton, Button, Popover, OverlayTrigger, Tooltip, Image, Modal } from 'react-bootstrap';
+import { Container, Row, Col, ButtonGroup, ToggleButton, Button, Popover, OverlayTrigger, Tooltip, Modal } from 'react-bootstrap';
 import MapContainer from '../components/MapContainer';
-import { Last } from 'react-bootstrap/esm/PageItem';
 import { BsFillQuestionCircleFill } from "react-icons/bs";
 
 

@@ -5,10 +5,6 @@ import logo from './images/5120mp14logo_noSlogan.jpg';
 //import SearchBar from './components/SearchBar';
 
 
-const state = {
-    val: ''
-};
-
 
 const NavBar = () => {
     //const [keyword, setKeyword] = useState();
@@ -33,10 +29,11 @@ const NavBar = () => {
 
 
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/contactus">About Us</Nav.Link>
+                
                 <Nav.Link href="/litterclassification">Litter Classification</Nav.Link>
-                <Nav.Link href="/article-list">Laws, Penalties and News</Nav.Link>
+                <Nav.Link href="/law">Laws, Penalties and News</Nav.Link>
                 <Nav.Link href="/events">Disposal Sites</Nav.Link>
+                <Nav.Link href="/contactus">About Us</Nav.Link>
                 
                 <>
                     {/* <SearchBar /> */}

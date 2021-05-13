@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Container, Row, Col, } from 'react-bootstrap';
 import navigateToElement from '../components/ArticleNaviation';
 import List from '@material-ui/core/List';
@@ -84,7 +83,7 @@ const ContactUsPage = () => {
                                         L.E.A.R stands for the Litter Education and Action Resource.
                                     </p>
                                     <img
-                                        alt="logo picture"
+                                        alt="logo"
                                         src={logo}
                                         style={{
                                             marginTop: "20px",
@@ -112,7 +111,7 @@ const ContactUsPage = () => {
                                     <Row>
                                         <Col sm={4}>
                                             <img
-                                                alt="The Developer Picture."
+                                                alt="The Developer."
                                                 className="img-fluid rounded shadow"
                                                 src={zoePic}
                                                 style={{width: "150px"}}
@@ -127,7 +126,7 @@ const ContactUsPage = () => {
                                     <Row>
                                         <Col sm={2}>
                                             <img
-                                                alt="The Data Specialist Picture."
+                                                alt="The Data Specialist."
                                                 className="img-fluid rounded shadow"
                                                 src={danielPic}
                                                 style={{width: "100px",height: "75px"}}
@@ -137,7 +136,7 @@ const ContactUsPage = () => {
                                         </Col>
                                         <Col sm={2}>
                                             <img
-                                                alt="The Data Specialist Picture."
+                                                alt="The Data Specialist."
                                                 className="img-fluid rounded shadow"
                                                 src={kartikPic}
                                                 style={{width: "100px",  height: "75px"
@@ -156,7 +155,7 @@ const ContactUsPage = () => {
                                     <Row>
                                         <Col sm={2}>
                                             <img
-                                                alt="The Business Analyst Picture."
+                                                alt="The Business Analyst."
                                                 className="img-fluid rounded shadow"
                                                 src={YuhangPic}
                                                 style={{width: "75px", height: "100px"}}
@@ -166,7 +165,7 @@ const ContactUsPage = () => {
                                         </Col>
                                         <Col sm={2}>
                                             <img
-                                                alt="The Business Analyst Picture."
+                                                alt="The Business Analyst."
                                                 className="img-fluid rounded shadow"
                                                 src={WeichenPic}
                                                 style={{width: "75px", height: "100px"}}

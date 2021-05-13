@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ArticlesList from '../components/ArticlesList';
-
+//import ArticlesList from '../components/ArticlesList';
 import LitterClassificationCard from '../components/LitterClassificationCard';
-import classifications from './litter-classification-content';
 import Fuse from "fuse.js";
 import { Link } from 'react-router-dom';
 import { Fragment } from 'react';

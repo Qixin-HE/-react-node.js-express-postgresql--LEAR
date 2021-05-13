@@ -4,10 +4,10 @@ import pic02 from '../images/homepagepic2.jpg';
 import pic03 from '../images/homepagepic3.jpg';
 import pic04 from '../images/homepagepic4.jpg';
 import pic05 from '../images/245white.jpg';
-import { Card, Button, CardDeck, Carousel, Container, Row, Col, } from 'react-bootstrap';
+import { Card, Button, Container, Row, Col, } from 'react-bootstrap';
 
 import { Link, } from 'react-router-dom';
-import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
+import {  TwitterTweetEmbed } from 'react-twitter-embed';
 import { FixedSizeList as List } from 'react-window';
 
 
@@ -223,7 +223,7 @@ const getTwitter = () => {
                                 </Card.Title>
                         <Card.Text>
                             {twitter.length > 0 ? <List
-                                height={75}
+                                
                                 // itemCount={twitterData.length}
                                 itemCount={twitter.length}
                                 itemSize={300}

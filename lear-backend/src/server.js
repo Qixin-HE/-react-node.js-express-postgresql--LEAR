@@ -104,7 +104,7 @@ const getLitterClassification = () => {
       if (error) {
         reject(error)
       }
-      //console.log(results.rows);
+      
       resolve(results.rows);
 
     })
@@ -293,37 +293,41 @@ app.get('/api/twitters', (req, res) => {
 //   })
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('6908e643d9a442798796f3906c8b1c1a');
-// To query /v2/top-headlines
-// All options passed to topHeadlines are optional, but you need to include at least one of them
-// newsapi.v2.topHeadlines({
-//   sources: 'bbc-news,the-verge',
-//   q: 'bitcoin',
-//   category: 'business',
-//   language: 'en',
-//   country: 'uk'
-// }).then(response => {
-//   console.log(response);
-//   /*
-//     {
-//       status: "ok",
-//       articles: [...]
-//     }
-//   */
-// });
+
+//Get two time strings for querying live news everyday
+const findToday = () => {
+var dateObj = new Date();
+var month = dateObj. getUTCMonth() + 1; //months from 1-12.
+var lastMonth = month - 1;
+var day = dateObj. getUTCDate();
+var year = dateObj. getUTCFullYear();
+const toDate = year + "-" + month + "-" + day;
+const fromDate = year + "-" + lastMonth + "-" + day;
+const queryTime = {
+  "from" : fromDate,
+   "to": toDate
+}
+//console.log(queryTime);
+return queryTime;
+}
+
 // To query /v2/everything
 // You must include at least one q, source, or domain
 app.get('/api/news', (req, res) => {
+  const queryTime = findToday;
   newsapi.v2.everything({
     //q: '(litter)AND(melbourne))OR((volunteer)AND(clean)AND(melbourne))OR((polution)AND(melbourne))OR((litter)AND(victoria)',
-    q:'litter',
+    q:'((litter)AND(victoria))OR((litter)AND(melbourne))OR((volunteer)AND(clean)AND(victoria))OR((volunteer)AND(clean)AND(melbourne))OR((polution)AND(victoria))OR((polution)AND(melbourne))OR((polution)AND(victoria))OR((litter)AND(australia))',
+    
     sources: '',
     domains: '',
-    from: '2021-04-25',
-    to: '2021-05-11',
+    from: queryTime.from,
+    to: queryTime.to,
     language: 'en',
     sortBy: 'relevancy',
     page: 3
   }).then(response => {
+    
     res.status(200).send(response);
   }).catch(error => {
 

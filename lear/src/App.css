@@ -242,3 +242,10 @@ div#article_block {
   height: 500px;
   overflow-y: scroll;
 }
+/* for news block on law page */
+div#newsBlock {
+  border-radius: 10px;
+  background: #dbdbdb;
+  box-shadow: inset 5px 5px 10px #a2a2a2,
+              inset -5px -5px 10px #ffffff;
+}
