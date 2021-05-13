@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser, { json } from 'body-parser';
 import path from 'path';
-import queriesfile from './queries'
+//import queriesfile from './queries'
 import cors from "cors";
 
 

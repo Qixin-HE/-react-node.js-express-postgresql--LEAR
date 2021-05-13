@@ -120,7 +120,7 @@ const ContactUsPage = () => {
                                             <p style={{ textAlign: "center"}}>MIT</p>
                                         </Col>
                                         <Col sm={8}>
-                                            <p style={{marginTop: "20px"}}>The Developer of the team. She has been working tirelessly to implement the ideas that the team has come up with. </p>
+                                            <p style={{marginTop: "8%"}}>The Developer of the team. She has been working tirelessly to implement the ideas that the team has come up with. </p>
                                         </Col>
                                     </Row>
                                     <Row>
@@ -228,13 +228,14 @@ const ContactUsPage = () => {
                                         />{' '}
 
                                         <p>
-                                            • Litter classification page: The litter classification section will help users with identifying different types of litter and how to dispose of them correctly.
+                                            • <strong>Litter Classification</strong> page: The litter classification section will help users with identifying different types of litter and how to dispose of them correctly.
                                      </p>
                                         <p>
-                                            • Disposal sites page: Using our interactive mapping feature, users will have the ability to view different litter disposal sites locations, find litter bins, and identify how to get there. Users can also navigate to the Eventbrite site to create new clean-up events!
+                                            • <strong>Disposal Sites</strong> page: Using our interactive mapping feature, users will have the ability to view different litter disposal sites locations, find litter bins, and identify how to get there. Users can also navigate to the Eventbrite site to create new clean-up events!
                                     </p>
                                         <p>
-                                            • Laws and penalties page: For users who want to understand litter legislation, the legal information section will provide users with the latest legislation regarding littering as well as data collected on fines.
+                                            • <strong>Laws, Penalties and News</strong> page: For users who want to understand litter legislation, the legal information section will provide users with the latest legislation regarding littering as well as data collected on fines.
+                                            A news block on the page provides the lastest news that related to litter in Australia.
                                         </p>
                                     </div>
                                     <p>
