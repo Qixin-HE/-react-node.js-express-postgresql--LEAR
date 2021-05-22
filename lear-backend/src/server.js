@@ -58,13 +58,16 @@ const { Pool, Client, Connection } = require('pg')
 //   port: 5432,
 // })
 
+//it requires the dotenv package and executes its config function, which reads the .env file and sets the environment variables.
+const { newApiKey, twitterConsumerKey, twitterConsumerSecret, twitterAccessTokenKey, twitterTokenSecret, user, host, database, password, port } = require('./config');
+//console.log({ newApiKey });
 //for zoe local db environment
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'postgres',
-  password: '333444',
-  port: 5432,
+  user: user,
+  host: host,
+  database: database,
+  password: password,
+  port: port,
 })
 
 // pool.query('SELECT NOW()', (err, res) => {
@@ -176,7 +179,7 @@ const getSites = () => {
       if (error) {
         reject(error)
       }
-      console.log(results.rows);
+      //console.log(results.rows);
       resolve(results.rows);
 
     })
@@ -240,10 +243,11 @@ app.get('/twitters', (req, res) => {
 var Twitter = require('twitter');
 
 var client = new Twitter({
-  consumer_key: 'dg7K11qK1SE8zAWiswFcXH8hG',
-  consumer_secret: '4posDbg9dttpg0b60VUB8tKamhzwsJuY7Wgddt2vv8sKhZnmVY',
-  access_token_key: '1377563808932098048-3vNNUZQUiqkbm1NzIvDYiJWOZlXtoN',
-  access_token_secret: 'q2hp5pjrjrFICaRwK46fIr17lZoDBW0T1O5eCA2LGuKRD'
+  
+  consumer_key: twitterConsumerKey,
+  consumer_secret: twitterConsumerSecret,
+  access_token_key: twitterAccessTokenKey,
+  access_token_secret: twitterTokenSecret
 });
 
 // var params = {screen_name: 'nodejs'};
@@ -294,7 +298,7 @@ app.get('/api/twitters', (req, res) => {
 //     })
 //   })
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('6908e643d9a442798796f3906c8b1c1a');
+const newsapi = new NewsAPI(newApiKey);
 
 //Get two time strings for querying live news everyday
 const findToday = () => {
