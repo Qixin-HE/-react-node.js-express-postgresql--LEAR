@@ -1,49 +1,52 @@
-import React, { useCallback, useState } from 'react';
-import { Form, FormControl, Button } from 'react-bootstrap';
-import SearchResult from '../pages/SearchResult';
-import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-  } from 'react-router-dom';
+// import React, { useCallback, useState } from 'react';
+// import { Form, FormControl, Button } from 'react-bootstrap';
+// import SearchResult from '../pages/SearchResult';
+// import {
+//     BrowserRouter as Router,
+//     Route,
+//     Switch,
+//   } from 'react-router-dom';
 
-const SearchBar = () => {
-// const onSubmit = useCallback(event => {
-//     onSubmit(event.target.value)
-//   }, [onSubmit])
-const [keyword, setKeyword] = useState();
+/* This const used to provide search functionality of the website on the navigation bar,
+but is is decided not used in the project.  */
 
-const onSubmit = (e) => {
-    //this.props.history.push('/search');
-    e.preventDefault();
-    //this.props.history.push('/search')
-    // return (
-    //     <Router>
-    //     <Switch>
-    //         <Route path="/search" component={SearchResult} />
-    //     </Switch>
-    //     </Router>
-    // )
-    window.location.href = "/search/" + keyword;
-}
+// const SearchBar = () => {
+// // const onSubmit = useCallback(event => {
+// //     onSubmit(event.target.value)
+// //   }, [onSubmit])
+// const [keyword, setKeyword] = useState();
 
-// handler = (e) => {
-//     // do some validation
-//     this.refs.myForm.submit();
-//     };
+// const onSubmit = (e) => {
+//     //this.props.history.push('/search');
+//     e.preventDefault();
+//     //this.props.history.push('/search')
+//     // return (
+//     //     <Router>
+//     //     <Switch>
+//     //         <Route path="/search" component={SearchResult} />
+//     //     </Switch>
+//     //     </Router>
+//     // )
+//     window.location.href = "/search/" + keyword;
+// }
 
-    return (
-        <div className="Search">
-            <span className="SearchSpan">
-                <Form onSubmit={onSubmit} inline>
-                    <FormControl className="SearchInput" type="text" onChange={(e) => setKeyword(e.target.value)} placeholder="Search" className="mr-sm-2"
-                    />
-                    <Button type="submit" value="Submit" variant="outline-info">Search</Button>
-                </Form>
-            </span>
+// // handler = (e) => {
+// //     // do some validation
+// //     this.refs.myForm.submit();
+// //     };
 
-        </div>
-    );
-};
+//     return (
+//         <div className="Search">
+//             <span className="SearchSpan">
+//                 <Form onSubmit={onSubmit} inline>
+//                     <FormControl className="SearchInput" type="text" onChange={(e) => setKeyword(e.target.value)} placeholder="Search" className="mr-sm-2"
+//                     />
+//                     <Button type="submit" value="Submit" variant="outline-info">Search</Button>
+//                 </Form>
+//             </span>
 
-export default SearchBar;
+//         </div>
+//     );
+// };
+
+// export default SearchBar;

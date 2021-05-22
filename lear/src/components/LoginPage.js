@@ -2,14 +2,19 @@ import React, { useState } from 'react';
 import { Form, Button, } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
+/* The login function, return the boolean to check if the input password matches the 
+ true/hardcoded password. */
+
 const login = password => {
     return "lear" === password
 }
 
+/* The Login page will show when the user is first into the website/new session starts. */
 const LoginPage = ({ setToken }) => {
-    //const { password, updatePassword } = useContext(Context);
-
+    
+//This state save the user input in the password input box. It will change when user is typing.
     const [password, setPassword] = useState();
+    //This function will be triggered when user click on "Submit" button. It check the input password.
     const handleSubmit = e => {
         e.preventDefault();
         const token = login(password);
@@ -25,10 +30,7 @@ const LoginPage = ({ setToken }) => {
     return (
         <div id="login-body" >
             <div class="loin-wrapper">
-                
-
-
-            
+                           
                     <Form onSubmit={handleSubmit}>
                     
                         <Form.Group controlId="formBasicPassword">

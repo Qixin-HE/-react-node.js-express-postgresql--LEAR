@@ -11,8 +11,9 @@ import lawPic02 from '../images/lawPic02.jpg';
 import lawPic03 from '../images/lawPic03.jpg';
 
 
-
+/** This is the "Laws, Penalties and News" page. */
 const LawPage = () => {
+    //This is used for handle the user scroll action but is not used later.
     //const [scroll, setScroll] = useState(false);
     // const [style, setStyle] = useState({ 
     //     backgroundColor: "rgba(245, 245, 245, 0.8)", 
@@ -57,7 +58,9 @@ const LawPage = () => {
     //     const element = document.getElementById(name)
     //     element.scrollIntoView();
     // }
+    //This state saved the news fetches from the backend.
     const [news, setNews] = useState([]);
+    //This useEffect will fetch the news from api in backend.
     useEffect(() => {
         // fetch('https://newsapi.org/v2/everything?q=((litter)AND(melbourne))OR((volunteer)AND(clean)AND(melbourne))OR((polution)AND(melbourne))OR((litter)AND(victoria))&from=2021-04-25&sortBy=popularity&apiKey=6908e643d9a442798796f3906c8b1c1a')
         fetch('/api/news')
@@ -66,6 +69,7 @@ const LawPage = () => {
     setNews(data.articles)});
     //console.log(news);
     }, []);
+    //This is each row of the FixedSizeList which used to show news.
     const ARow = ({ index, style, data }) => (
         <div className="Row" style={style}> 
           <div style={{paddingLeft: "20px", paddingRight: "25px", paddingTop :"20px"}}>

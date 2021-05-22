@@ -116,6 +116,7 @@ app.get('/litter', (req, res) => {
   getLitterClassification().then(response => {
     //console.log(response);
     res.status(200).send(response);
+    
   })
     .catch(error => {
       res.status(500).send(error);
@@ -136,6 +137,7 @@ const getSyring = () => {
   })
 }
 
+//For responding the syring bin data fetch request (get).
 app.get('/syring', (req, res) => {
   getSyring().then(response => {
 

@@ -11,29 +11,16 @@ import {  TwitterTweetEmbed } from 'react-twitter-embed';
 import { FixedSizeList as List } from 'react-window';
 
 
-// const twitterData =
-//     [
-//         { "id": '1390979801989648387' },
-//         { "id": '1390960964405764096' },
-//         { "id": '1388265512254115840' },
-//         { "id": '1391094717711110145' },
-//         { "id": '1391169021211447299' },
-//         { "id": '1390265586060390400' },
-//         { "id": '1390263819079987200' }
-        
-//     ]
-
+/**This is the Home page. */
 
 const HomePage = () => {
+    //This state saved the twitter that fetched from twitter api in backend.
     const [twitter, setTwitter] = useState([]);
 useEffect(() => {
   getTwitter();
-//    if (twitter.length > 0){
-//   alert(twitter[0].statuses.id_str);
-//    }
 
-  //setData(litterclassification);
 }, []);
+//The function that fetches twitters from api in backend.
 const getTwitter = () => {
     fetch('/api/twitters')
       .then(response => {
@@ -45,6 +32,7 @@ const getTwitter = () => {
         setTwitter(data.statuses);
       });
   };
+  //This is actually each twitter in the FixsizedList that on the bottom of the home page.
   const Column = ({ index, style, data }) => 
   (
    < div className="Col" style={style}

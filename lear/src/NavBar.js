@@ -4,7 +4,7 @@ import { Navbar, Nav} from 'react-bootstrap';
 import logo from './images/5120mp14logo_noSlogan.jpg';
 //import SearchBar from './components/SearchBar';
 
-
+/**This is the navigation bar of the website. */
 
 const NavBar = () => {
     //const [keyword, setKeyword] = useState();

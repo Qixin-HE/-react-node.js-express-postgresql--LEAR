@@ -3,11 +3,11 @@ import { Container, Row, Col, ButtonGroup, ToggleButton, Button, Popover, Overla
 import MapContainer from '../components/MapContainer';
 import { BsFillQuestionCircleFill } from "react-icons/bs";
 
-
+/**This is the "Disposal Sites"page. */
 
 const EventsPage = () => {
 
-    //const merchants = DataService.getAll();
+    
 
     //button to control the markers on map
     const [radioValue, setRadioValue] = useState('1');
@@ -17,6 +17,7 @@ const EventsPage = () => {
 
     ];
 
+    //This state used to store syring bins data that is feted from backend.
     const [syring, setSyring] = useState([]);
     useEffect(() => {
         getSyring();
@@ -31,10 +32,12 @@ const EventsPage = () => {
             });
     };
 
+    //This state save the lanfill sites data that is feted from backend.
     const [landfill, setLandfill] = useState([]);
     useEffect(() => {
         getSites();
     }, []);
+    //This function fetches lanfill sites data from backend.
     const getSites = async () => {
         await fetch('/sites')
             .then(response => {
@@ -48,10 +51,12 @@ const EventsPage = () => {
             });
     };
 
+    //The states that save locations.(longitude and latitude)
     const [directionLat, setDirectionLat] = useState(0);
     const [directionLong, setDirectionLong] = useState(0);
 
 
+    //When user click on the marker, its location will be saved into states.
     const handleCallback = (childData) => {
         const lat = childData.lat;
         const long = childData.lng
@@ -62,13 +67,14 @@ const EventsPage = () => {
         // console.log(externalMapLink)
 
     }
-    // const [show, setShow] = useState(false);
-
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
+    
+    //To construct the external google link with the location as the set off location.
     const externalMapLink =
         "https://www.google.com.au/maps/dir/" + directionLat + "," + directionLong
 
+        //This function triggered when the user click on the "Open google map"button.
+        //It also validates if the user have clicked on a marker or not.
+        //If not, an alert window will show and no new window with google map will show.
     const navigateToExternalMap = (url) => {
         if (directionLat === 0){
             alert("Please click on a marker before you navigate to Google map!")
@@ -97,12 +103,14 @@ const EventsPage = () => {
         if (newWindow) newWindow.opener = null
     }
 
+    //Handle the action when user click on the "Go to eventbrite" button.
     const navigateToEventBrite = () => {
         const newWindow = window.open("https://www.eventbrite.com.au/", '_blank', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
     }
 
     //add more instruction(user experience)
+    //The instruction when user click on the "?" icon that on top of the map, next to "Interactive map" title.
     const popover = (
         <Popover id="popover-basic">
             <Popover.Title as="h3">How to use the map?</Popover.Title>
@@ -119,6 +127,9 @@ const EventsPage = () => {
       </Popover.Content>
         </Popover>
     );
+
+    //The instruction when user click on the "?" icon that next to 
+    //"Change a marker set on the map".
     const popoverMaker = (
         <Popover id="popover-basic">
             <Popover.Title as="h3">Marker sets</Popover.Title>
@@ -134,6 +145,8 @@ const EventsPage = () => {
       </Popover.Content>
         </Popover>
     );
+    //The instruction when user click on the "?" icon that next to 
+    //"Go to this location".
     const popoverGooglemapLink = (
         <Popover id="popover-basic">
             <Popover.Title as="h3">Google map link</Popover.Title>
@@ -150,6 +163,8 @@ const EventsPage = () => {
         </Popover>
     );
 
+    //The instruction when user click on the "?" icon that next to 
+    //"Create an event on Eventbrite".
     const popoverEventBtn = (
         <Popover id="popover-basic">
             <Popover.Title as="h3">Create a clean-up event !</Popover.Title>

@@ -5,15 +5,20 @@ import Fuse from "fuse.js";
 import { BsSearch, BsFillQuestionCircleFill } from "react-icons/bs";
 import { Popover, OverlayTrigger } from 'react-bootstrap';
 
+/**This is the "Litter Classification" page. */
 const LitterClassicationPage = () => {
+    //For saving the litter classification data.
     const [litterclassification, setLitterclassification] = useState([]);
     //for dropdown list
     const[superCategory, setSuperCategory] = useState([]);
 
+    //To fetch the litter classification data after first load.
     useEffect(() => {
         getLitterClassification();
         
     }, []);
+
+    //When litterclassification state changes, it will set the data state and superCategory state.
     useEffect(() => {
         //getLitterClassification();
         setData(litterclassification);
@@ -22,6 +27,8 @@ const LitterClassicationPage = () => {
     }, [litterclassification]);
     //var superCategory = [];
 
+    //It returns a list of Super Category objects of the litter classification items
+    // which has no duplicate item and also with the number of its sub-category item amount.
     const filterSuperCategoryForDropdownList = () => {
         var superCategoryList = [];
         var superCategoryNameList = [];
@@ -52,6 +59,7 @@ const LitterClassicationPage = () => {
         return numberOfItInTheSuperCategory;
     }
 
+//It fetches the litter classification data from backend.
     const getLitterClassification = () => {
         fetch('/litter')
             //fetch('database-1.cbsg9s7iau2c.us-east-2.rds.amazonaws.com')
@@ -65,8 +73,9 @@ const LitterClassicationPage = () => {
             });
     };
 
-
+//This state used to save the items that display on the page.
     const [data, setData] = useState(litterclassification);
+    //Handle the search using the input textbox.
     const searchData = (query) => {
         if (!query) {
             setData(litterclassification);
@@ -87,6 +96,7 @@ const LitterClassicationPage = () => {
             setData([]);
         }
     };
+    //Handle the user click action on the dropdown list.
     const filterDataDropdown = (name) => {
         if (name === "all") {
             setData(litterclassification);
@@ -96,6 +106,8 @@ const LitterClassicationPage = () => {
         const filteredData = copyOfLitterclassification.filter(item => item.info['Super category'] === name);
         setData(filteredData);
     }
+
+    //The instruction when user clicks on the icon that next to the page title.
     const popover = (
         <Popover id="popover-basic" style={{ maxWidth: "500px" }}>
             <Popover.Title as="h3">How to use this litter classification page?</Popover.Title>

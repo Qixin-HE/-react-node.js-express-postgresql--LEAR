@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import logo from '../images/5120mp14logo.jpg';
 
-
+//When the path is not avaliable, the route will match with this page.
 const NotFoundPage = () => (
     <>
 
@@ -13,7 +13,7 @@ const NotFoundPage = () => (
         <br />
         <br />
         <br />
-    <img
+                                    <img
                                         alt="logo"
                                         src={logo}
                                         style={{

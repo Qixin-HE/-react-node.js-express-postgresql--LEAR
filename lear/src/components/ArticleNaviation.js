@@ -1,3 +1,4 @@
+//This function provide navigation on the "About Us" page and "Laws, Penalties and News" page.
 export default function navigateToElement (name)  {
     // const element = document.getElementById(name)
     // element.scrollIntoView();

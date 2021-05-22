@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './Map';
 
-
+//It sets the map zise.
 const mapStyles = {
     width: '93%',
     height: '85%'
@@ -10,7 +10,7 @@ const mapStyles = {
 
 
 
-
+//This component provides a google map with info windows and markers.
 export class MapContainer extends Component {
     constructor(props) {
         super(props);
@@ -199,24 +199,7 @@ export class MapContainer extends Component {
                         </div>
                     </InfoWindow>
 
-                    {/* {selectedCenter && (
-                        <InfoWindow
-                            onCloseClick={() => {
-                                setSelectedCenter(null);
-                            }}
-                            position={{
-                                lat: selectedCenter.latitude,
-                                lng: selectedCenter.longitude
-                            }}
-                        >
-                            <div>
-                                <h3>{selectedCenter.name}</h3>
-                                <h5>{selectedCenter.address}, {selectedCenter.city},{selectedCenter.state} {selectedCenter.zip_code}</h5>
-                                <h5>{selectedCenter.phone_number}</h5>
-                                <p>Hours of operation: {selectedCenter.hours}</p>
-                            </div>
-                        </InfoWindow>
-                    )} */}
+                    
                 </Map>
 
             );
@@ -226,6 +209,7 @@ export class MapContainer extends Component {
 }
 //const key = process.env.REACT_APP_GOOGLE_API_KEY;
 
+//This provides the google map api key.
 export default GoogleApiWrapper({
 
     apiKey: 'AIzaSyDOCSg23TXUnzHFaLWiFGazzaR847QAtfQ'

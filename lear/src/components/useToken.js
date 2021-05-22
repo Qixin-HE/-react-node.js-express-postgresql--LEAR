@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+//This function save the password to the session. User can enter the website without input the 
+//password again in the same session.
 export default function useToken() {
     const getToken = () => {
         const tokenString = sessionStorage.getItem('token');
