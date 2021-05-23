@@ -1,0 +1,23 @@
+ohio:
+ec2
+rds
+sydney:
+ec2
+
+
+N. virginia-----------------
+iter2
+RDS: username: postgres , password: learmel1
+EC2 : ssh -i "key_aws.pem" ec2-user@ec2-54-144-227-29.compute-1.amazonaws.com
+
+iter3
+EC2: ssh -i "key_aws.pem" ec2-user@ec2-52-23-230-150.compute-1.amazonaws.com
+
+
+
+
+RDS in EC2
+psql -h db1.crrehpgr2eq9.us-east-1.rds.amazonaws.com --port 5432 --password -U postgres -d lear
+
+
+

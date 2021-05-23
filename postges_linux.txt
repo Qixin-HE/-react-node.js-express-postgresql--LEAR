@@ -1,0 +1,14 @@
+ssh -i "key_aws.pem" ec2-user@ec2-54-144-227-29.compute-1.amazonaws.com
+
+Install postgres if not installed
+sudo -i -u postgres
+psql
+\c DBname
+\dt ----for db tables
+
+SELECT version();
+\conninfo
+
+SELECT count(*) AS exact_count FROM myschema.mytable;
+
+
